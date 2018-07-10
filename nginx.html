@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>在 CentOS 7 上 安装 Nginx</title>
+</head>
+<body>
+  <h1>在 CentOS 7 上 安装 Nginx</h1>
+  <p><a href="http://nginx.org/en/linux_packages.html">Nginx 官方安装指南</a></p>
+  <h2>设置 yum 仓库</h2>
+  <pre>
+    <code>
+      [nginx]
+      name=nginx repo
+      baseurl=http://nginx.org/packages/centos/7/$basearch/
+      gpgcheck=0
+      enabled=1
+    </code>
+  </pre>
+  <h2>安装</h2>
+  <pre><code>yum install</code></pre>
+  <h2>启动</h2>
+  <pre><code>nginx</code></pre>
+  <h2>访问测试</h2>
+  <p><a href="http://axi.name">访问站点</a></p>
+</body>
+</html>
