@@ -10,6 +10,7 @@
   <h1>在 CentOS 7 上 安装 Nginx</h1>
   <p><a href="http://nginx.org/en/linux_packages.html">Nginx 官方安装指南</a></p>
   <h2>设置 yum 仓库</h2>
+  <p>在<code>/etc/yum.repos.d/nginx.repo</code>文件里加上下面的设置</p>
   <pre>
     <code>
       [nginx]
@@ -20,7 +21,7 @@
     </code>
   </pre>
   <h2>安装</h2>
-  <pre><code>yum install</code></pre>
+  <pre><code>yum install nginx</code></pre>
   <h2>启动</h2>
   <pre><code>nginx</code></pre>
   <h2>访问测试</h2>

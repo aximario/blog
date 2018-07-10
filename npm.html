@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>NPM 入门</title>
+</head>
+<body>
+  <h1>目录</h1>
+  <ul>
+    <li>发布一个 npm 包</li>
+  </ul>
+  <h1>发布一个 npm 包</h1>
+  <p>首先要去 <a href="https://www.npmjs.com/">npm 官网</a>去注册一个账号，我的账号是 xiangtuo</p>
+  <p>然后去 Github 新建一个仓库 <code>xt-npm-demo</code>，克隆到本地，然后通过 <code>npm init -y</code> 初始化为 npm 模块，我们会得到一个 <code>package.json</code> 文件</p>
+  <pre>
+    <code>
+      {
+        "name": "xt-npm-demo",
+        "version": "1.0.0",
+        "description": "",
+        "main": "index.js",
+        "scripts": {
+          "test": "echo \"Error: no test specified\" && exit 1"
+        },
+        "repository": {
+          "type": "git",
+          "url": "git+https://github.com/aximario/xt-npm-demo.git"
+        },
+        "keywords": [],
+        "author": "",
+        "license": "ISC",
+        "bugs": {
+          "url": "https://github.com/aximario/xt-npm-demo/issues"
+        },
+        "homepage": "https://github.com/aximario/xt-npm-demo#readme"
+      }
+    </code>
+  </pre>
+  <p>然后用 <code>npm login</code> 命令登录刚刚注册的账号。登录完成之后可以用 <code>npm whoami</code> 查看现在登录的账号做确认。</p>
+  <p>当我们把我们的模块写好了之后就可以用 <code>npm publish</code> 发布了</p>
+</body>
+</html>
