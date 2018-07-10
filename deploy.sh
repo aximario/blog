@@ -1,3 +1,3 @@
 !#/bin/bash
 
-scp *.html blog.axi.name:/data/blog
+scp *.html root@axi:/data/blog
