@@ -1,3 +1,3 @@
-!#/bin/bash
+#!/bin/bash
 
 scp *.html root@axi:/data/blog
