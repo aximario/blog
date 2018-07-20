@@ -1,44 +1,138 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hans">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./blog.css">
   <title>NPM 入门</title>
 </head>
+
 <body>
-  <h1>目录</h1>
-  <ul>
-    <li>发布一个 npm 包</li>
-  </ul>
-  <h1>发布一个 npm 包</h1>
-  <p>首先要去 <a href="https://www.npmjs.com/">npm 官网</a>去注册一个账号，我的账号是 xiangtuo</p>
-  <p>然后去 Github 新建一个仓库 <code>xt-npm-demo</code>，克隆到本地，然后通过 <code>npm init -y</code> 初始化为 npm 模块，我们会得到一个 <code>package.json</code> 文件</p>
-  <pre>
-    <code>
-      {
-        "name": "xt-npm-demo",
-        "version": "1.0.0",
-        "description": "",
-        "main": "index.js",
-        "scripts": {
-          "test": "echo \"Error: no test specified\" && exit 1"
-        },
-        "repository": {
-          "type": "git",
-          "url": "git+https://github.com/aximario/xt-npm-demo.git"
-        },
-        "keywords": [],
-        "author": "",
-        "license": "ISC",
-        "bugs": {
-          "url": "https://github.com/aximario/xt-npm-demo/issues"
-        },
-        "homepage": "https://github.com/aximario/xt-npm-demo#readme"
-      }
-    </code>
-  </pre>
-  <p>然后用 <code>npm login</code> 命令登录刚刚注册的账号。登录完成之后可以用 <code>npm whoami</code> 查看现在登录的账号做确认。</p>
-  <p>当我们把我们的模块写好了之后就可以用 <code>npm publish</code> 发布了</p>
+  <article>
+    <aside>
+      <h1>大纲</h1>
+      <ul>
+        <li>
+          <a href="#install-npm-package">1. 安装 npm 包</a>
+          <ul>
+            <li>
+              <a href="#install-npm-package-directly">1.1. 直接执行 npm install</a>
+            </li>
+            <li>
+              <a href="#install-a-specified-npm-package">1.2. 安装指定的包</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#publish-npm-package">2. 发布一个 npm 包</a>
+        </li>
+        <li>
+          <a href="#debug-npm-package">3. 本地调试 npm 包</a>
+        </li>
+      </ul>
+    </aside>
+    <main>
+      <section>
+        <h1 id="install-npm-package">1. 安装 npm 包</h1>
+        <p>
+          <code>详细内容可以参看
+            <a href="https://docs.npmjs.com/cli/install">npm install 官方文档</a>
+          </code>
+        </p>
+        <h2 id="install-npm-package-directly">1.1. 直接执行 npm install</h2>
+        <p>直接在项目里执行
+          <code>npm install</code>，会安装
+          <code>package.json</code> 里的所有依赖，如果项目下有
+          <code>package-lock.json</code> 或者
+          <code>npm-shrinkwrap.json</code> 文件，则会按照这些文件指明的版本安装依赖，
+          <code>npm-shrinkwrap.json</code>
+          的优先级高于
+          <code>package-lock.json</code>
+        </p>
+        <h2 id="install-a-specified-npm-package">1.2. 安装指定的包</h2>
+        <p>使用
+          <code>npm install [package]</code> 就可以安装一个指定的 npm 包，也可以用简写
+          <code>npm i [package]</code>。在安装的同时可以指定一系列参数
+        </p>
+        <ul>
+          <li>
+            <code>-g, --global</code> 全局安装</li>
+          <li>
+            <code>-P, --save-prod</code> 作为生产依赖安装，并保存到 package.json 里的 dependencies 字段里</li>
+          <li>
+            <code>-D, --save-dev</code> 作为开发依赖安装，并保存到 package.json 里的 devDependencies 字段里</li>
+          <li>
+            <code>-O, --save-optional</code> 作为可选依赖安装，并保存到 package.json 里的 optionalDependencies 字段里</li>
+          <li>
+            <code>--no-save</code> 只安装，不保存到 package.json 里</li>
+          <li>
+            <code>-E, --save-exact</code> 安装特定的版本，不使用默认的语义化版本控制范围符</li>
+          <li>
+            <code>-B, --save-bundle</code> 作为打包依赖安装，并保存到 package.json 里的 bundleDependencies 字段里</li>
+          <li>
+            <code>--package-lock-only</code> 只更新 package-lock.json 里的依赖，并不实际安装包</li>
+          <li>
+            <code>-f, --force</code> 强制从远端拉取包安装，不管本地有没有这个包的缓存</li>
+          <li>
+            <code>--only={prod[uction]|dev[elopment]}</code> 只安装 dependencies 或者 devDependencies 里的包</li>
+        </ul>
+        <p>
+          <strong>通过 npm install [package] 安装的包会同步更新 package-lock.json 或者 npm-shrinkwrap.json</strong>
+        </p>
+      </section>
+      <section>
+
+        <h1 id="publish-npm-package">2. 发布一个 npm 包</h1>
+        <p>首先要去
+          <a href="https://www.npmjs.com/">npm 官网</a>去注册一个账号，我的账号是 xiangtuo</p>
+        <p>然后去 Github 新建一个仓库
+          <code>xt-npm-demo</code>，克隆到本地，然后通过
+          <code>npm init -y</code> 初始化为 npm 模块，我们会得到一个
+          <code>package.json</code> 文件</p>
+        <pre>
+          <code>
+          {
+            "name": "xt-npm-demo",
+            "version": "1.0.0",
+            "description": "",
+            "main": "index.js",
+            "scripts": {
+              "test": "echo \"Error: no test specified\" && exit 1"
+            },
+            "repository": {
+              "type": "git",
+              "url": "git+https://github.com/aximario/xt-npm-demo.git"
+            },
+            "keywords": [],
+            "author": "",
+            "license": "ISC",
+            "bugs": {
+              "url": "https://github.com/aximario/xt-npm-demo/issues"
+            },
+            "homepage": "https://github.com/aximario/xt-npm-demo#readme"
+          }
+          </code>
+        </pre>
+        <p>然后用
+          <code>npm login</code> 命令登录刚刚注册的账号。登录完成之后可以用
+          <code>npm whoami</code> 查看现在登录的账号做确认。</p>
+        <p>当我们把我们的模块写好了之后就可以用
+          <code>npm publish</code> 发布了</p>
+      </section>
+      <section>
+        <h1 id="debug-npm-package">3. 本地调试 npm 包</h1>
+        <p>我们写的 npm 包最好是经过测试，保证正确再发布，如果我们想要在一个项目里引用这个在开发中的 npm 包试试能不能正常使用，可以用
+          <code>npm link</code> 命令</p>
+        <p>在开发包的
+          <code>package.json</code> 同级目录下执行
+          <code>npm link</code>，然后在需要使用这个包的项目的
+          <code>package.json</code> 同级目录下执行
+          <code>npm link xt-npm-demo</code> 就可以了</p>
+      </section>
+    </main>
+  </article>
 </body>
+
 </html>

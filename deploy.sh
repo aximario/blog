@@ -1,3 +1,3 @@
-#!/bin/bash
+#!/bin/sh
 
-scp *.html root@axi:/data/blog
+scp *.html *.css root@axi:/data/blog
