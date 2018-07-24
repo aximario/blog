@@ -24,38 +24,64 @@
 <body>
   <article>
     <header>NPM 的使用</header>
+    <p>最近更新时间：2018-07-24</p>
     <aside>
       <h1>大纲</h1>
       <ul>
         <li>
-          <a href="#install-npm-package">1. 安装 npm 包</a>
+          <a href="#package-and-module">1. 理解 npm package 和 module</a>
+        </li>
+        <li>
+          <a href="#install-npm-package">2. 安装 npm 包</a>
           <ul>
             <li>
-              <a href="#install-npm-package-directly">1.1. 直接执行 npm install</a>
+              <a href="#install-npm-package-directly">2.1. 直接执行 npm install</a>
             </li>
             <li>
-              <a href="#install-a-specified-npm-package">1.2. 安装指定的包</a>
+              <a href="#install-a-specified-npm-package">2.2. 安装指定的包</a>
             </li>
           </ul>
         </li>
         <li>
-          <a href="#publish-npm-package">2. 发布一个 npm 包</a>
+          <a href="#publish-npm-package">3. 发布一个 npm 包</a>
         </li>
         <li>
-          <a href="#debug-npm-package">3. 本地调试 npm 包</a>
+          <a href="#debug-npm-package">4. 本地调试 npm 包</a>
         </li>
         <li>
-          <a href="#semantic-versioning">4. 语义化版本控制</a>
+          <a href="#semantic-versioning">5. 语义化版本控制</a>
         </li>
         <li>
-          <a href="#npm configurations">5. .npmrc</a>
+          <a href="#npm configurations">6. .npmrc</a>
+        </li>
+        <li>
+          <a href="#useful-commands">7. 常用的几个有用的 npm 指令</a>
         </li>
       </ul>
     </aside>
     <main>
       <section>
+        <h1 id="package-and-module">1. 理解 npm package 和 module</h1>
+        <p>npm package 和 module 并不是同一个东西：</p>
+        <ul>
+          <li>一个 package 是一个由 package.json 描述的文件或者目录，它有各种表现形式</li>
+          <li>一个 module 是可以被 node require() 的文件或者目录</li>
+        </ul>
+        <p>package 的各种形式：</p>
+        <ul>
+          <li>a. 被 package.json 文件描述的包含一段程序的目录</li>
+          <li>b. 一个 gzip 的 tar 包，包含 (a)</li>
+          <li>c. 一个指向 (b) 的 url</li>
+          <li>d. 在仓库里发布的 &lt;name&gt;@&lt;version&gt; (c)</li>
+          <li>e. 一个指向 (d) 的 &lt;name&gt;@&lt;tag&gt;</li>
+          <li>f. 一个满足 (e) 的有 <strong>latest</strong> tag 的 &lt;name&gt; 包名 </li>
+          <li>g. 一个 git url，克隆下来是一个满足 (a) 的项目</li>
+        </ul>
+        <p>绝大部分的 npm package 都是 module，但是也有不少的 npm package 不是 module，不能被 require()。比方说 cli package，比较常见的有 vue-cli 等。</p>
+      </section>
+      <section>
         <h1 id="install-npm-package">1. 安装 npm 包</h1>
-        <p>我们使用 npm 的最多的场景就是安装 npm 仓库里的包，但是 npm 不仅可以安装 npm 仓库里的各种包，还能安装 tar 包，tar 包的 url，Git 仓库，文件夹等，详细内容可以参看 [<a href="https://docs.npmjs.com/cli/install">npm install 官方文档</a>]，下面记一下使用 npm install 的很常用的场景。</p>
+        <p>我们使用 npm 的最多的场景就是安装 npm 仓库里的包，但是 npm 不仅可以安装 npm 仓库里的各种包，还能安装 package 的各种形式（如上），详细内容可以参看 [<a href="https://docs.npmjs.com/cli/install">npm install 官方文档</a>]，下面记一下使用 npm install 的很常用的场景。</p>
         <h2 id="install-npm-package-directly">1.1. 直接执行 npm install</h2>
         <p>直接在项目里执行
           <code>npm install</code>，会安装
@@ -209,6 +235,14 @@
         <p>指定 npm 缓存的位置。默认值为 <strong>Windows: %AppData%\npm-cache, Posix: ~/.npm</strong></p>
         <h3>registry</h3>
         <p>指定 npm 源，默认为 <a href="https://registry.npmjs.org/">https://registry.npmjs.org/</a></p>
+      </section>
+      <section>
+        <h1 id="useful-commands">常用的几个有用的 npm 指令</h1>
+        <ul>
+          <li>npm outdated</li>
+          <li>npm home $package</li>
+          <li>npm repo $package</li>
+        </ul>
       </section>
     </main>
   </article>
