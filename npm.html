@@ -24,7 +24,7 @@
 <body>
   <article>
     <header>NPM 的使用</header>
-    <p>最近更新时间：2018-07-24</p>
+    <p>最近更新时间：2018-07-26</p>
     <aside>
       <h1>大纲</h1>
       <ul>
@@ -55,7 +55,7 @@
           <a href="#npm configurations">6. .npmrc</a>
         </li>
         <li>
-          <a href="#useful-commands">7. 常用的几个有用的 npm 指令</a>
+          <a href="#useful-commands">7. 常用的几个有用的 npm 命令</a>
         </li>
       </ul>
     </aside>
@@ -230,14 +230,32 @@
         </ul>
         <p>下面介绍一下常用的几个配置</p>
         <h3>access</h3>
-        <p>指定域包的权限，默认值为 <strong>restricted</strong>，只能自己使用。可以指定为 <strong>public</strong>，这样别人也可以用。</p>
+        <p>指定域包的权限，默认值为 <strong>recstricted</strong>，只能自己使用。可以指定为 <strong>public</strong>，这样别人也可以用。</p>
         <h3>cache</h3>
         <p>指定 npm 缓存的位置。默认值为 <strong>Windows: %AppData%\npm-cache, Posix: ~/.npm</strong></p>
         <h3>registry</h3>
         <p>指定 npm 源，默认为 <a href="https://registry.npmjs.org/">https://registry.npmjs.org/</a></p>
       </section>
       <section>
-        <h1 id="useful-commands">常用的几个有用的 npm 指令</h1>
+        <h1 id="useful-commands">7. 常用的几个有用的 npm 命令</h1>
+        <p>这里介绍一下 npm 一些常用的，有用的命令</p>
+        <h2>7.1 npm ls</h2>
+        <p>npm ls 命令会在控制台以树形结构打印出所有安装的 package 的依赖和它们的子依赖。更多详细信息可以参看<a href="https://docs.npmjs.com/cli/ls">[官方文档]</a></p>
+        <h3>用法</h3>
+        <pre>
+          <code>
+            npm ls [[@$scope/]$package] [$options]
+            aliases: npm list, npm la, npm ll
+          </code>
+        </pre>
+        <h3>常用的例子：</h3>
+        <ul>
+          <li>npm ls -g，查看全局安装的 packages</li>
+          <li>npm ls --depth=0，只查看第一层依赖，不看子依赖</li>
+          <li>npm ls --dev，只查看开发依赖</li>
+        </ul>
+        <h2>7.2 npm dedupe</h2>
+        <p>npm dedupe 的作用是移除多余的重复依赖的包。比如 b 依赖 c@1.0.x，d 依赖 c@~1.0.9。在已安装的 node_modules 里有 c@1.0.3 和 c@1.0.10。那么其实 c@1.0.10 可以满足 b 和 d 的依赖，c@1.0.3 就是多余的了。</p>
         <ul>
           <li>npm outdated</li>
           <li>npm home $package</li>
