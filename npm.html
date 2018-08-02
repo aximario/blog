@@ -24,7 +24,7 @@
 <body>
   <article>
     <header>NPM 的使用</header>
-    <p>最近更新时间：2018-07-26</p>
+    <p>最近更新时间：2018-08-02</p>
     <aside>
       <h1>大纲</h1>
       <ul>
@@ -80,9 +80,9 @@
         <p>绝大部分的 npm package 都是 module，但是也有不少的 npm package 不是 module，不能被 require()。比方说 cli package，比较常见的有 vue-cli 等。</p>
       </section>
       <section>
-        <h1 id="install-npm-package">1. 安装 npm 包</h1>
+        <h1 id="install-npm-package">2. 安装 npm 包</h1>
         <p>我们使用 npm 的最多的场景就是安装 npm 仓库里的包，但是 npm 不仅可以安装 npm 仓库里的各种包，还能安装 package 的各种形式（如上），详细内容可以参看 [<a href="https://docs.npmjs.com/cli/install">npm install 官方文档</a>]，下面记一下使用 npm install 的很常用的场景。</p>
-        <h2 id="install-npm-package-directly">1.1. 直接执行 npm install</h2>
+        <h2 id="install-npm-package-directly">2.1. 直接执行 npm install</h2>
         <p>直接在项目里执行
           <code>npm install</code>，会安装
           <code>package.json</code> 里的所有依赖。如果项目下有
@@ -92,7 +92,7 @@
           的优先级高于
           <code>package-lock.json</code>
         </p>
-        <h2 id="install-a-specified-npm-package">1.2. 安装指定的包</h2>
+        <h2 id="install-a-specified-npm-package">2.2. 安装指定的包</h2>
         <p>使用
           <code>npm install [package]</code> 就可以安装一个指定的 npm 包，也可以用简写
           <code>npm i [package]</code>。在安装的同时可以指定一系列参数
@@ -125,7 +125,7 @@
       </section>
       <section>
 
-        <h1 id="publish-npm-package">2. 发布一个 npm 包</h1>
+        <h1 id="publish-npm-package">3. 发布一个 npm 包</h1>
         <p>首先要去 [<a href="https://www.npmjs.com/">npm 官网</a>] 去注册一个账号，我的账号是 xiangtuo</p>
         <p>然后去 [<a href="https://github.com/">Github</a>] 新建一个仓库
           <code>xt-npm-demo</code>，克隆到本地，然后通过
@@ -162,7 +162,7 @@
           <code>npm publish</code> 发布了</p>
       </section>
       <section>
-        <h1 id="debug-npm-package">3. 本地调试 npm 包</h1>
+        <h1 id="debug-npm-package">4. 本地调试 npm 包</h1>
         <p>我们写的 npm 包最好是经过测试，保证正确再发布，如果我们想要在一个项目里引用这个在开发中的 npm 包试试能不能正常使用，可以用
           <code>npm link</code> 命令</p>
         <p>在开发包的
@@ -172,7 +172,7 @@
           <code>npm link xt-npm-demo</code> 就可以了</p>
       </section>
       <section>
-        <h1 id="semantic-versioning">4. 语义化版本控制</h1>
+        <h1 id="semantic-versioning">5. 语义化版本控制</h1>
         <p>npm 的包都会有形如 <code>x.y.z</code> 的版本。其中 x 叫做 Major 版本，y 叫做 Minor 版本，z 叫做 Patch 版本，官方推荐第一个包的版本是 1.0.0，然后以后的版本升级遵循下面表格的标准</p>
         <table cellspacing="0">
           <thead>
@@ -220,7 +220,7 @@
         <p>想要具体的了解和实践，可以去 [<a href="https://semver.npmjs.com/">npm semver calculator</a>] 验证一下。</p>
       </section>
       <section>
-        <h1 id="npm configurations">5. .npmrc</h1>
+        <h1 id="npm configurations">6. .npmrc</h1>
         <p>npm 有许多有用的配置可以通过 .npmrc 文件来配置，.npmrc 文件有不同的优先级：</p>
         <ul>
           <li>项目级 - /path/to/my/project/.npmrc</li>
@@ -239,7 +239,7 @@
       <section>
         <h1 id="useful-commands">7. 常用的几个有用的 npm 命令</h1>
         <p>这里介绍一下 npm 一些常用的，有用的命令</p>
-        <h2>7.1 npm ls</h2>
+        <h2>7.1. npm ls</h2>
         <p>npm ls 命令会在控制台以树形结构打印出所有安装的 package 的依赖和它们的子依赖。更多详细信息可以参看<a href="https://docs.npmjs.com/cli/ls">[官方文档]</a></p>
         <h3>用法</h3>
         <pre>
@@ -248,18 +248,52 @@
             aliases: npm list, npm la, npm ll
           </code>
         </pre>
-        <h3>常用的例子：</h3>
+        <h3>示例：</h3>
         <ul>
           <li>npm ls -g，查看全局安装的 packages</li>
           <li>npm ls --depth=0，只查看第一层依赖，不看子依赖</li>
           <li>npm ls --dev，只查看开发依赖</li>
         </ul>
-        <h2>7.2 npm dedupe</h2>
+        <h2>7.2. npm dedupe</h2>
         <p>npm dedupe 的作用是移除多余的重复依赖的包。比如 b 依赖 c@1.0.x，d 依赖 c@~1.0.9。在已安装的 node_modules 里有 c@1.0.3 和 c@1.0.10。那么其实 c@1.0.10 可以满足 b 和 d 的依赖，c@1.0.3 就是多余的了。</p>
+        <h3>用法</h3>
+        <pre>
+          <code>
+            npm dedupe
+            npm ddp
+          </code>
+        </pre>
+        <h2>7.3. npm outdated</h2>
+        <p>npm outdated 可以查看当前哪些 package 有新的版本。</p>
+        <h3>用法</h3>
+        <pre>
+          <code>
+            npm outdated [[@$scope/]$package]
+          </code>
+        </pre>
+        <h2>7.4. npm home</h2>
+        <p>npm home 目录可以直接在浏览器打开某个 package 的主页</p>
+        <h3>用法</h3>
+        <pre>
+          <code>
+            npm home [[@$scope/]$package]
+          </code>
+        </pre>
+        <h3>示例：</h3>
         <ul>
-          <li>npm outdated</li>
-          <li>npm home $package</li>
-          <li>npm repo $package</li>
+          <li>npm home react</li>
+        </ul>
+        <h2>7.5. npm repo</h2>
+        <p>npm repo 目录可以直接在浏览器打开某个 package 的 Github 地址</p>
+        <h3>用法</h3>
+        <pre>
+          <code>
+            npm repo [[@$scope/]$package]
+          </code>
+        </pre>
+        <h3>示例：</h3>
+        <ul>
+          <li>npm repo react</li>
         </ul>
       </section>
     </main>
