@@ -1,0 +1,26 @@
+body {
+  background: #fff;
+  color: #4f5759;
+  font: 100% 'PT Sans', 'Arial', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft Jhenghei', 'Microsoft YaHei', 'WenQuanYi Micro Hei', 'STXihei', sans-serif;
+  text-rendering: optimizelegibility;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ul {
+  list-style: none;
+}
+
+a,
+a:active {
+  color: #4f5759;
+}
+
+a:visited {
+  color: #282c2e;
+}
+
+a:hover {
+  color: #b0bdc0;
+}
