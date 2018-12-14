@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="./index.css">
+  <title>JS 中的原型链</title>
+</head>
+
+<body>
+  <article>
+    <section>
+      <p>JS 创造了第一个对象，并打算用这个对象来衍生出各种各样的对象，这个对象是 <code>Object.prototype</code>，意思就是<strong>对象的原型</strong>。</p>
+      <figure>
+        <svg width="134px" height="78px" viewBox="0 0 134 78" version="1.1" xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink">
+          <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="ObjectPrototype">
+              <g id="Object" stroke="#4A4A4A" stroke-width="2">
+                <rect id="Rectangle" x="1" y="1" width="132" height="76" rx="38"></rect>
+              </g>
+              <text id="Object-prototype" font-family="Chalkboard-Bold, Chalkboard" font-size="14" font-weight="bold"
+                fill="#000000">
+                <tspan x="44.159116" y="35">Object</tspan>
+                <tspan x="35.4961326" y="57">prototype</tspan>
+              </text>
+            </g>
+          </g>
+        </svg>
+      </figure>
+      <p>然后通过这个对象的原型创造了各种内置对象的原型，<code>Function.prototype</code>，<code>Array.prototype</code>，<code>Date.prototype</code>
+        等等。</p>
+      <figure>
+        <svg width="539px" height="252px" viewBox="0 0 539 252" version="1.1" xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink">
+          <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="Group">
+              <g id="ObjectPrototype" transform="translate(206.000000, 0.000000)">
+                <g>
+                  <g id="Object" stroke="#4A4A4A" stroke-width="2">
+                    <rect id="Rectangle" x="1" y="1" width="132" height="76" rx="38"></rect>
+                  </g>
+                  <text id="Object-prototype" font-family="Chalkboard-Bold, Chalkboard" font-size="14" font-weight="bold"
+                    fill="#000000">
+                    <tspan x="44.159116" y="35">Object</tspan>
+                    <tspan x="35.4961326" y="57">prototype</tspan>
+                  </text>
+                </g>
+              </g>
+              <g id="FunctionPrototype" transform="translate(206.000000, 167.000000)">
+                <g id="Object" stroke="#4A4A4A" stroke-width="2">
+                  <rect id="Rectangle" x="1" y="1" width="132" height="76" rx="38"></rect>
+                </g>
+                <text id="Function-prototype" font-family="Chalkboard-Bold, Chalkboard" font-size="14" font-weight="bold"
+                  fill="#000000">
+                  <tspan x="39.5337017" y="35">Function</tspan>
+                  <tspan x="35.4961326" y="57">prototype</tspan>
+                </text>
+              </g>
+              <g id="arrow" transform="translate(271.000000, 79.000000)" stroke="#7ED321">
+                <path d="M5,87 C5,74.2239583 5,60.0572917 5,44.5 C5,28.9427083 5,14.7760417 5,2" id="Line" stroke-width="2"
+                  stroke-linecap="square"></path>
+                <polygon id="Triangle" fill="#7ED321" points="4.78516856 0.0107028513 8.78516856 10.0107029 0.785168563 10.0107029"></polygon>
+              </g>
+              <g id="Object" transform="translate(405.000000, 174.000000)" stroke="#4A4A4A" stroke-width="2">
+                <rect id="Rectangle" x="1" y="1" width="132" height="76" rx="38"></rect>
+              </g>
+              <text id="Array-prototype" font-family="Chalkboard-Bold, Chalkboard" font-size="14" font-weight="bold"
+                fill="#000000">
+                <tspan x="453.320442" y="209">Array</tspan>
+                <tspan x="440.496133" y="231">prototype</tspan>
+              </text>
+              <g id="Object" transform="translate(0.000000, 167.000000)" stroke="#4A4A4A" stroke-width="2">
+                <rect id="Rectangle" x="1" y="1" width="132" height="76" rx="38"></rect>
+              </g>
+              <text id="Date-prototype" font-family="Chalkboard-Bold, Chalkboard" font-size="14" font-weight="bold"
+                fill="#000000">
+                <tspan x="52.118232" y="202">Date</tspan>
+                <tspan x="35.4961326" y="224">prototype</tspan>
+              </text>
+              <polygon id="Triangle" stroke="#7ED321" fill="#7ED321" transform="translate(208.000000, 62.000000) rotate(53.000000) translate(-208.000000, -62.000000) "
+                points="208 57 212 67 204 67"></polygon>
+              <polygon id="Triangle" stroke="#7ED321" fill="#7ED321" transform="translate(338.000000, 65.000000) rotate(-49.000000) translate(-338.000000, -65.000000) "
+                points="338 60 342 70 334 70"></polygon>
+              <path d="M63.5,167.5 L210.5,60.5" id="Line-2" stroke="#7ED321" stroke-width="2" stroke-linecap="square"></path>
+              <path d="M470.5,174.5 L335.5,63.5" id="Line-3" stroke="#7ED321" stroke-width="2" stroke-linecap="square"></path>
+              <text id=".-.-." font-family="Chalkboard-Bold, Chalkboard" font-size="14" font-weight="bold" fill="#000000">
+                <tspan x="151.333149" y="216">. . .</tspan>
+              </text>
+              <text id=".-.-." font-family="Chalkboard-Bold, Chalkboard" font-size="14" font-weight="bold" fill="#000000">
+                <tspan x="360.333149" y="217">. . .</tspan>
+              </text>
+              <text id="__proto__" font-family="Chalkboard-Bold, Chalkboard" font-size="14" font-weight="bold" fill="#000000">
+                <tspan x="92.241989" y="119">__proto__</tspan>
+              </text>
+              <text id="__proto__" font-family="Chalkboard-Bold, Chalkboard" font-size="14" font-weight="bold" fill="#000000">
+                <tspan x="244.241989" y="127">__proto__</tspan>
+              </text>
+              <text id="__proto__" font-family="Chalkboard-Bold, Chalkboard" font-size="14" font-weight="bold" fill="#000000">
+                <tspan x="373.241989" y="118">__proto__</tspan>
+              </text>
+            </g>
+          </g>
+        </svg>
+      </figure>
+    </section>
+  </article>
+</body>
+
+</html>
