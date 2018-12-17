@@ -42,429 +42,88 @@
       </ul>
     </aside>
     <section>
-      <p>JS 创造了第一个对象，然后用这个对象衍生出了各种各样的对象，有种道生一，一生二，二生三，三生万物的意思。而这第一个对象就是 <code>Object.prototype</code>，意思就是<strong>对象的原型</strong>，所有的对象都由这个原型演变而来。这就奠定了一个基础，JS
-        世界里的所有东西都是对象。</p>
+      <p>JS 里的第一个对象是 <code>Object.prototype</code>，所有的对象都继承于它。</p>
       <figure>
-        <svg width="134px" height="78px" viewBox="0 0 134 78" version="1.1" xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink">
-          <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-            <g id="ObjectPrototype">
-              <g id="Object" stroke="#4A4A4A" stroke-width="2">
-                <rect id="Rectangle" x="1" y="1" width="132" height="76" rx="38"></rect>
-              </g>
-              <text id="Object-prototype" font-family="Chalkboard-Bold, Chalkboard" font-size="14" font-weight="bold"
-                fill="#000000">
-                <tspan x="44.159116" y="35">Object</tspan>
-                <tspan x="35.4961326" y="57">prototype</tspan>
-              </text>
-            </g>
-          </g>
-        </svg>
+        <img src="./statics/objectPrototype.svg">
       </figure>
-      <p>接着更多的对象都根据这个原型创造了出来：<code>Function.prototype</code>，<code>Array.prototype</code>，<code>Date.prototype</code>
-        等等。</p>
+      <p>然后就有了各种对象。</p>
       <figure>
-        <svg width="512px" height="244px" viewBox="0 0 512 244" version="1.1" xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink">
-          <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-            <g id="prototype">
-              <g>
-                <g id="ObjectPrototype" transform="translate(189.000000, 0.000000)">
-                  <g>
-                    <g id="Object" stroke="#4A4A4A" stroke-width="2">
-                      <rect id="Rectangle" x="1" y="1" width="132" height="76" rx="38"></rect>
-                    </g>
-                    <text id="Object-prototype" font-family="Chalkboard-Bold, Chalkboard" font-size="14" font-weight="bold"
-                      fill="#000000">
-                      <tspan x="44.159116" y="35">Object</tspan>
-                      <tspan x="35.4961326" y="57">prototype</tspan>
-                    </text>
-                  </g>
-                </g>
-                <g id="FunctionPrototype" transform="translate(189.000000, 166.000000)">
-                  <g>
-                    <g id="Object" stroke="#4A4A4A" stroke-width="2">
-                      <rect id="Rectangle" x="1" y="1" width="132" height="76" rx="38"></rect>
-                    </g>
-                    <text id="Function-prototype" font-family="Chalkboard-Bold, Chalkboard" font-size="14" font-weight="bold"
-                      fill="#000000">
-                      <tspan x="39.5337017" y="35">Function</tspan>
-                      <tspan x="35.4961326" y="57">prototype</tspan>
-                    </text>
-                  </g>
-                </g>
-                <g id="arrow" transform="translate(254.000000, 79.000000)" stroke="#7ED321">
-                  <path d="M5,83 C5,70.8251838 5,57.3251838 5,42.5 C5,27.6748162 5,14.1748162 5,2" id="Line"
-                    stroke-width="2" stroke-linecap="square"></path>
-                  <polygon id="Triangle" fill="#7ED321" points="4.78516856 0.0107028513 8.78516856 10.0107029 0.785168563 10.0107029"></polygon>
-                </g>
-                <g id="arrayPrototype" transform="translate(378.000000, 166.000000)">
-                  <g>
-                    <g id="Object" stroke="#4A4A4A" stroke-width="2">
-                      <rect id="Rectangle" x="1" y="1" width="132" height="76" rx="38"></rect>
-                    </g>
-                    <text id="Array-prototype" font-family="Chalkboard-Bold, Chalkboard" font-size="14" font-weight="bold"
-                      fill="#000000">
-                      <tspan x="48.320442" y="35">Array</tspan>
-                      <tspan x="35.4961326" y="57">prototype</tspan>
-                    </text>
-                  </g>
-                </g>
-                <g id="datePrototype" transform="translate(0.000000, 166.000000)">
-                  <g>
-                    <g id="Object" stroke="#4A4A4A" stroke-width="2">
-                      <rect id="Rectangle" x="1" y="1" width="132" height="76" rx="38"></rect>
-                    </g>
-                    <text id="Date-prototype" font-family="Chalkboard-Bold, Chalkboard" font-size="14" font-weight="bold"
-                      fill="#000000">
-                      <tspan x="52.118232" y="35">Date</tspan>
-                      <tspan x="35.4961326" y="57">prototype</tspan>
-                    </text>
-                  </g>
-                </g>
-                <text id=".-.-." font-family="Chalkboard-Bold, Chalkboard" font-size="14" font-weight="bold" fill="#000000">
-                  <tspan x="150.333149" y="209">. . .</tspan>
-                </text>
-                <text id=".-.-." font-family="Chalkboard-Bold, Chalkboard" font-size="14" font-weight="bold" fill="#000000">
-                  <tspan x="341.333149" y="209">. . .</tspan>
-                </text>
-                <g id="arrow" transform="translate(70.000000, 56.000000)" stroke="#7ED321">
-                  <polygon id="Triangle" fill="#7ED321" transform="translate(119.000000, 7.000000) rotate(49.000000) translate(-119.000000, -7.000000) "
-                    points="119 2 123 12 115 12"></polygon>
-                  <path d="M0,105 L119,7" id="Line-2" stroke-width="2" stroke-linecap="square"></path>
-                </g>
-                <g id="arrow" transform="translate(314.000000, 58.000000)" stroke="#7ED321">
-                  <polygon id="Triangle" fill="#7ED321" transform="translate(7.000000, 7.000000) rotate(-49.000000) translate(-7.000000, -7.000000) "
-                    points="7 2 11 12 3 12"></polygon>
-                  <path d="M123,104 L4.5,5.5" id="Line-3" stroke-width="2" stroke-linecap="square"></path>
-                </g>
-              </g>
-            </g>
-          </g>
-        </svg>
+        <img src="./statics/prototype.svg">
       </figure>
-      <p>有道是：“龙生九子不成龙，各有所好”。这些新创造的对象也不是特别像最开始的原型，而是各有所长。其中非常重要的一个就是 Function
-        了，它可以打包一系列操作，所以可以很方便的做一些重复的事情，比方说根据原型创建新的对象，于是它的一个很重要的角色就是构造函数。</p>
+      <p>接着构造函数出现了，用来创造新对象，创造出的新对象都继承了相应的 prototype，构造函数继承自<code>Function.prototype</code>。</p>
       <figure>
-        <svg width="512px" height="405px" viewBox="0 0 512 405" version="1.1" xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink">
-          <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-            <g id="prototype-constructor">
-              <g>
-                <g id="prototype">
-                  <g>
-                    <g id="ObjectPrototype" transform="translate(189.000000, 0.000000)">
-                      <g>
-                        <g id="Object" stroke="#4A4A4A" stroke-width="2">
-                          <rect id="Rectangle" x="1" y="1" width="132" height="76" rx="38"></rect>
-                        </g>
-                        <text id="Object-prototype" font-family="Chalkboard-Bold, Chalkboard" font-size="14"
-                          font-weight="bold" fill="#000000">
-                          <tspan x="44.159116" y="35">Object</tspan>
-                          <tspan x="35.4961326" y="57">prototype</tspan>
-                        </text>
-                      </g>
-                    </g>
-                    <g id="FunctionPrototype" transform="translate(189.000000, 166.000000)">
-                      <g>
-                        <g id="Object" stroke="#4A4A4A" stroke-width="2">
-                          <rect id="Rectangle" x="1" y="1" width="132" height="76" rx="38"></rect>
-                        </g>
-                        <text id="Function-prototype" font-family="Chalkboard-Bold, Chalkboard" font-size="14"
-                          font-weight="bold" fill="#000000">
-                          <tspan x="39.5337017" y="35">Function</tspan>
-                          <tspan x="35.4961326" y="57">prototype</tspan>
-                        </text>
-                      </g>
-                    </g>
-                    <g id="arrow" transform="translate(254.000000, 79.000000)" stroke="#7ED321">
-                      <path d="M5,83 C5,70.8251838 5,57.3251838 5,42.5 C5,27.6748162 5,14.1748162 5,2" id="Line"
-                        stroke-width="2" stroke-linecap="square"></path>
-                      <polygon id="Triangle" fill="#7ED321" points="4.78516856 0.0107028513 8.78516856 10.0107029 0.785168563 10.0107029"></polygon>
-                    </g>
-                    <g id="arrayPrototype" transform="translate(378.000000, 166.000000)">
-                      <g>
-                        <g id="Object" stroke="#4A4A4A" stroke-width="2">
-                          <rect id="Rectangle" x="1" y="1" width="132" height="76" rx="38"></rect>
-                        </g>
-                        <text id="Array-prototype" font-family="Chalkboard-Bold, Chalkboard" font-size="14" font-weight="bold"
-                          fill="#000000">
-                          <tspan x="48.320442" y="35">Array</tspan>
-                          <tspan x="35.4961326" y="57">prototype</tspan>
-                        </text>
-                      </g>
-                    </g>
-                    <g id="datePrototype" transform="translate(0.000000, 166.000000)">
-                      <g>
-                        <g id="Object" stroke="#4A4A4A" stroke-width="2">
-                          <rect id="Rectangle" x="1" y="1" width="132" height="76" rx="38"></rect>
-                        </g>
-                        <text id="Date-prototype" font-family="Chalkboard-Bold, Chalkboard" font-size="14" font-weight="bold"
-                          fill="#000000">
-                          <tspan x="52.118232" y="35">Date</tspan>
-                          <tspan x="35.4961326" y="57">prototype</tspan>
-                        </text>
-                      </g>
-                    </g>
-                    <text id=".-.-." font-family="Chalkboard-Bold, Chalkboard" font-size="14" font-weight="bold" fill="#000000">
-                      <tspan x="150.333149" y="209">. . .</tspan>
-                    </text>
-                    <text id=".-.-." font-family="Chalkboard-Bold, Chalkboard" font-size="14" font-weight="bold" fill="#000000">
-                      <tspan x="341.333149" y="209">. . .</tspan>
-                    </text>
-                    <g id="arrow" transform="translate(70.000000, 56.000000)" stroke="#7ED321">
-                      <polygon id="Triangle" fill="#7ED321" transform="translate(119.000000, 7.000000) rotate(49.000000) translate(-119.000000, -7.000000) "
-                        points="119 2 123 12 115 12"></polygon>
-                      <path d="M0,105 L119,7" id="Line-2" stroke-width="2" stroke-linecap="square"></path>
-                    </g>
-                    <g id="arrow" transform="translate(314.000000, 58.000000)" stroke="#7ED321">
-                      <polygon id="Triangle" fill="#7ED321" transform="translate(7.000000, 7.000000) rotate(-49.000000) translate(-7.000000, -7.000000) "
-                        points="7 2 11 12 3 12"></polygon>
-                      <path d="M123,104 L4.5,5.5" id="Line-3" stroke-width="2" stroke-linecap="square"></path>
-                    </g>
-                  </g>
-                </g>
-                <g id="arrayConstructor" transform="translate(378.000000, 326.000000)">
-                  <g>
-                    <g id="Object" stroke="#4A4A4A" stroke-width="2">
-                      <rect id="Rectangle" x="1" y="1" width="132" height="76" rx="38"></rect>
-                    </g>
-                    <text id="Array-constructor" font-family="Chalkboard-Bold, Chalkboard" font-size="14" font-weight="bold"
-                      fill="#000000">
-                      <tspan x="48.320442" y="35">Array</tspan>
-                      <tspan x="29.3856354" y="57">constructor</tspan>
-                    </text>
-                  </g>
-                </g>
-                <g id="DateConstructor" transform="translate(0.000000, 327.000000)">
-                  <g>
-                    <g id="Object" stroke="#4A4A4A" stroke-width="2">
-                      <rect id="Rectangle" x="1" y="1" width="132" height="76" rx="38"></rect>
-                    </g>
-                    <text id="Date-constructor" font-family="Chalkboard-Bold, Chalkboard" font-size="14" font-weight="bold"
-                      fill="#000000">
-                      <tspan x="52.118232" y="35">Date</tspan>
-                      <tspan x="29.3856354" y="57">constructor</tspan>
-                    </text>
-                  </g>
-                </g>
-                <g id="functionConstructor" transform="translate(189.000000, 326.000000)">
-                  <g>
-                    <g id="Object" stroke="#4A4A4A" stroke-width="2">
-                      <rect id="Rectangle" x="1" y="1" width="132" height="76" rx="38"></rect>
-                    </g>
-                    <text id="Function-constructor" font-family="Chalkboard-Bold, Chalkboard" font-size="14"
-                      font-weight="bold" fill="#000000">
-                      <tspan x="39.5337017" y="35">Function</tspan>
-                      <tspan x="29.3856354" y="57">constructor</tspan>
-                    </text>
-                  </g>
-                </g>
-                <g id="Group" transform="translate(217.000000, 243.000000)" stroke="#4A90E2">
-                  <path d="M3.5,82.5 L3.5,2.5" id="Line" stroke-width="2" stroke-linecap="square"></path>
-                  <polygon id="Triangle" fill="#4A90E2" points="3.5 0 7 9 0 9"></polygon>
-                </g>
-                <g id="Group" transform="translate(32.000000, 244.000000)" stroke="#4A90E2">
-                  <path d="M3.5,82.5 L3.5,2.5" id="Line" stroke-width="2" stroke-linecap="square"></path>
-                  <polygon id="Triangle" fill="#4A90E2" points="3.5 0 7 9 0 9"></polygon>
-                </g>
-                <g id="Group" transform="translate(99.000000, 245.000000)" stroke="#F5A623">
-                  <path d="M3.5,80.5 L3.5,0.5" id="Line" stroke-width="2" stroke-linecap="square"></path>
-                  <polygon id="Triangle" fill="#F5A623" transform="translate(3.500000, 77.500000) scale(1, -1) translate(-3.500000, -77.500000) "
-                    points="3.5 73 7 82 0 82"></polygon>
-                </g>
-                <g id="Group" transform="translate(281.000000, 244.000000)" stroke="#F5A623">
-                  <path d="M3.5,80.5 L3.5,0.5" id="Line" stroke-width="2" stroke-linecap="square"></path>
-                  <polygon id="Triangle" fill="#F5A623" transform="translate(3.500000, 77.500000) scale(1, -1) translate(-3.500000, -77.500000) "
-                    points="3.5 73 7 82 0 82"></polygon>
-                </g>
-                <g id="Group" transform="translate(477.000000, 245.000000)" stroke="#F5A623">
-                  <path d="M3.5,80.5 L3.5,0.5" id="Line" stroke-width="2" stroke-linecap="square"></path>
-                  <polygon id="Triangle" fill="#F5A623" transform="translate(3.500000, 77.500000) scale(1, -1) translate(-3.500000, -77.500000) "
-                    points="3.5 73 7 82 0 82"></polygon>
-                </g>
-                <g id="Group" transform="translate(413.000000, 243.000000)" stroke="#4A90E2">
-                  <path d="M3.5,82.5 L3.5,2.5" id="Line" stroke-width="2" stroke-linecap="square"></path>
-                  <polygon id="Triangle" fill="#4A90E2" points="3.5 0 7 9 0 9"></polygon>
-                </g>
-                <g id="Group-2" transform="translate(122.000000, 232.000000)" stroke="#7ED321">
-                  <polygon id="Triangle-2" fill="#7ED321" transform="translate(77.770486, 6.102333) rotate(36.000000) translate(-77.770486, -6.102333) "
-                    points="77.7704857 1.10233335 81.2704857 11.1023334 74.2704857 11.1023334"></polygon>
-                  <path d="M0.5,103.5 L79.5,3.5" id="Line-2" stroke-width="2" stroke-linecap="square"></path>
-                </g>
-                <g id="Group-3" transform="translate(311.000000, 226.000000)" stroke="#7ED321">
-                  <path d="M71.5,120.5 L4.5,4.5" id="Line-3" stroke-width="2" stroke-linecap="square"></path>
-                  <polygon id="Triangle-3" fill="#7ED321" transform="translate(5.866613, 7.088351) rotate(-34.000000) translate(-5.866613, -7.088351) "
-                    points="5.86661282 2.08835118 9.36661282 12.0883512 2.36661282 12.0883512"></polygon>
-                </g>
-                <path d="M252.5,325.5 L252.5,243.5" id="Line-4" stroke="#7ED321" stroke-width="2" stroke-linecap="square"></path>
-                <polygon id="Triangle-4" stroke="#7ED321" fill="#7ED321" points="252.5 243 256 253 249 253"></polygon>
-              </g>
-            </g>
-          </g>
-        </svg>
+        <img src="./statics/prototype-constructor.svg">
       </figure>
-      <p>但是既然是通过原型创造的，那么总会和原型有所关联，这个关联就是<strong>原型链</strong>，也就是<code>__proto__</code>。新生成的对象会继承原型上的属性和方法，这些都是天生的能力。</p>
-      <p>在对象上的属性和方法，都是沿着原型链依次向上寻找最近的那个，如果没有找到就是真的没有这个属性或方法。</p>
-      <p>比如我们创造一个猫对象 Cat，他们都继承于 Cat.prototype，然后通过 Cat 构造函数生成</p>
+      <pre>
+        <code>
+const arrayInstance = [1, 2]
+Object.getPrototypeOf(arrayInstance) === Array.prototype // true
+
+const functionInstance = function() {}
+Object.getPrototypeOf(functionInstance) === Function.prototype // true
+
+const dateInstance = new Date()
+Object.getPrototypeOf(dateInstance) === Date.prototype // true
+        </code>
+      </pre>
+      <p>举个例子，创建一个 <code>Cat prototype</code>，用来生成各种猫</p>
       <pre>
         <code>
 function Cat(variety) {
   // 猫咪的品种
-  this.variety = variety;
+  this.variety = variety
 }
 
 Cat.prototype = {
   // 猫咪都会喵喵叫
-  say: function() {
-    console.log('meow');
+  say() {
+    console.log('meow')
   },
-  jump: function() {
-    console.log('jump');
+  jump() {
+    console.log('jump')
   }
 };
         </code>
       </pre>
-      <p>然后我们再通过这个 Cat 原型生成两个新的对象：</p>
+      <p>生成两个新的对象：</p>
       <pre>
         <code>
-var kangkang = new Cat('ju');
+const kangkang = new Cat('ju')
 // 会捕鱼
 kangkang.fishing = function() {
-  console.log('fishing');
+  console.log('fishing')
 }
 // 学会了神奇的叫法
 kangkang.say = function() {
-  console.log('wangwang');
+  console.log('wangwang')
 }
 
-var paopao = new Cat('buou');
+const paopao = new Cat('buou')
 // 会跳舞
 paopao.dancing = function() {
-  console.log('dancing');
+  console.log('dancing')
 }
 // 学会了神奇的叫法
 paopao.say = function() {
-  console.log('chongya');
+  console.log('chongya')
 }
         </code>
       </pre>
       <p>上面的关系的示意图：</p>
       <figure>
-        <svg width="532px" height="317px" viewBox="0 0 532 317" version="1.1" xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink">
-          <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-            <g id="Cat">
-              <g id="ObjectPrototype">
-                <g>
-                  <g id="Object" stroke="#4A4A4A" stroke-width="2">
-                    <rect id="Rectangle" x="1" y="1" width="132" height="76" rx="38"></rect>
-                  </g>
-                  <text id="Object-prototype" font-family="Chalkboard-Bold, Chalkboard" font-size="14" font-weight="bold"
-                    fill="#000000">
-                    <tspan x="44.159116" y="35">Object</tspan>
-                    <tspan x="35.4961326" y="57">prototype</tspan>
-                  </text>
-                </g>
-              </g>
-              <g id="Group" transform="translate(390.000000, 0.000000)">
-                <g id="Object" stroke="#4A4A4A" stroke-width="2">
-                  <rect id="Rectangle" x="1" y="1" width="132" height="76" rx="38"></rect>
-                </g>
-                <text id="Cat-constructor" font-family="Chalkboard-Bold, Chalkboard" font-size="14" font-weight="bold"
-                  fill="#000000">
-                  <tspan x="55.9546961" y="35">Cat</tspan>
-                  <tspan x="29.3856354" y="57">constructor</tspan>
-                </text>
-              </g>
-              <g id="FunctionPrototype" transform="translate(195.000000, 0.000000)">
-                <g>
-                  <g id="Object" stroke="#4A4A4A" stroke-width="2">
-                    <rect id="Rectangle" x="1" y="1" width="132" height="76" rx="38"></rect>
-                  </g>
-                  <text id="Function-prototype" font-family="Chalkboard-Bold, Chalkboard" font-size="14" font-weight="bold"
-                    fill="#000000">
-                    <tspan x="39.5337017" y="35">Function</tspan>
-                    <tspan x="35.4961326" y="57">prototype</tspan>
-                  </text>
-                </g>
-              </g>
-              <g id="Group-2" transform="translate(136.000000, 35.000000)" stroke="#7ED321">
-                <path d="M55,4.5 L2.5,4.5" id="Line" stroke-width="2" stroke-linecap="square"></path>
-                <polygon id="Triangle" fill="#7ED321" transform="translate(5.000000, 4.000000) rotate(-90.000000) translate(-5.000000, -4.000000) "
-                  points="5 -1 9 9 1 9"></polygon>
-              </g>
-              <g id="Group-2" transform="translate(333.000000, 35.000000)" stroke="#7ED321">
-                <path d="M55,4.5 L2.5,4.5" id="Line" stroke-width="2" stroke-linecap="square"></path>
-                <polygon id="Triangle" fill="#7ED321" transform="translate(5.000000, 4.000000) rotate(-90.000000) translate(-5.000000, -4.000000) "
-                  points="5 -1 9 9 1 9"></polygon>
-              </g>
-              <g id="Group-3" transform="translate(398.000000, 179.000000)">
-                <g id="Object" stroke="#4A4A4A" stroke-width="2">
-                  <rect id="Rectangle" x="1" y="1" width="132" height="76" rx="38"></rect>
-                </g>
-                <text id="Cat-prototype" font-family="Chalkboard-Bold, Chalkboard" font-size="14" font-weight="bold"
-                  fill="#000000">
-                  <tspan x="55.9546961" y="35">Cat</tspan>
-                  <tspan x="35.4961326" y="57">prototype</tspan>
-                </text>
-              </g>
-              <g id="Group-3" transform="translate(199.000000, 112.000000)">
-                <g id="Object" stroke="#4A4A4A" stroke-width="2">
-                  <rect id="Rectangle" x="1" y="1" width="132" height="76" rx="38"></rect>
-                </g>
-                <text id="kangkang" font-family="Chalkboard-Bold, Chalkboard" font-size="14" font-weight="bold" fill="#000000">
-                  <tspan x="36.7414365" y="43">kangkang</tspan>
-                </text>
-              </g>
-              <g id="Group-3" transform="translate(199.000000, 239.000000)">
-                <g id="Object" stroke="#4A4A4A" stroke-width="2">
-                  <rect id="Rectangle" x="1" y="1" width="132" height="76" rx="38"></rect>
-                </g>
-                <text id="paopao" font-family="Chalkboard-Bold, Chalkboard" font-size="14" font-weight="bold" fill="#000000">
-                  <tspan x="44.6359116" y="43">paopao</tspan>
-                </text>
-              </g>
-              <g id="Group-4" transform="translate(333.000000, 159.000000)" stroke="#7ED321">
-                <path d="M0.5,0.5 L65.5,40.5" id="Line-2" stroke-width="2" stroke-linecap="square"></path>
-                <polygon id="Triangle-2" fill="#7ED321" transform="translate(63.396226, 39.174994) rotate(126.000000) translate(-63.396226, -39.174994) "
-                  points="63.396226 34.1749942 67.396226 44.1749942 59.396226 44.1749942"></polygon>
-              </g>
-              <g id="Group-5" transform="translate(334.000000, 227.000000)" stroke="#7ED321">
-                <path d="M0.5,54.5 L64.5,5.5" id="Line-3" stroke-width="2" stroke-linecap="square"></path>
-                <polygon id="Triangle-2" fill="#7ED321" transform="translate(62.396226, 7.174994) rotate(49.000000) translate(-62.396226, -7.174994) "
-                  points="62.396226 2.17499424 66.396226 12.1749942 58.396226 12.1749942"></polygon>
-              </g>
-              <g id="Group-8" transform="translate(482.000000, 79.000000)" stroke="#F5A623">
-                <path d="M4.5,1.5 L4.5,99.5" id="Line-4" stroke-width="2" stroke-linecap="square"></path>
-                <polygon id="Triangle-3" fill="#F5A623" points="4.5 0 9 9 0 9"></polygon>
-              </g>
-              <g id="Group-7" transform="translate(422.000000, 80.000000)" stroke="#4A90E2">
-                <path d="M4.5,0.5 L4.5,98.5" id="Line-4" stroke-width="2" stroke-linecap="square"></path>
-                <polygon id="Triangle-3" fill="#4A90E2" transform="translate(4.500000, 95.500000) scale(1, -1) translate(-4.500000, -95.500000) "
-                  points="4.5 91 9 100 0 100"></polygon>
-              </g>
-              <g id="Group-6" transform="translate(113.000000, 68.000000)" stroke="#7ED321">
-                <polygon id="Triangle-3" fill="#7ED321" transform="translate(6.500000, 6.500000) rotate(-60.000000) translate(-6.500000, -6.500000) "
-                  points="6.5 2 11 11 2 11"></polygon>
-                <path d="M303.5,117.5 C267.299479,60.1067708 215.860677,31.4101562 149.183594,31.4101562 C82.5065104,31.4101562 34.9453125,22.7734375 6.5,5.5"
-                  id="Line-5" stroke-width="2" stroke-linecap="square"></path>
-              </g>
-            </g>
-          </g>
-        </svg>
+        <img src="./statics/Cat.svg">
       </figure>
       <p>根据绿色的原型链，我们就可以知道下面的代码的执行情况了</p>
       <pre>
         <code>
-kangkang.fishing(); // fishing
-paopao.dancing(); // dancing
+kangkang.fishing() // fishing
+paopao.dancing() // dancing
 
-kangkang.say(); // wangwang
-paopao.say(); // chongya
+kangkang.say() // wangwang
+paopao.say() // chongya
 
-kangkang.jump(); // jump 沿着原型链可以找到
-paopao.jump(); // jump 沿着原型链可以找到
+kangkang.jump() // jump 沿着原型链可以找到
+paopao.jump() // jump 沿着原型链可以找到
 
 kangkang.age // undefined 沿着原型链找到尽头也没有找到
 paopao.age // undefined 沿着原型链找到尽头也没有找到
