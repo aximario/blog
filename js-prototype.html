@@ -31,14 +31,14 @@
     <header style="margin-bottom: .5em;">
       <h1>JS 中的原型链</h1>
       <p>作者：阿希</p>
-      <p>更新于：2018-12-16</p>
+      <p>更新于：2018-12-17</p>
     </header>
     <aside style="margin-bottom: 1em;">
       <p>不用颜色的箭头分别代表以下含义：</p>
       <ul>
-        <li style="color: #7ED321">__proto__</li>
-        <li style="color: #4A90E2">prototype</li>
-        <li style="color: #F5A623">constructor</li>
+        <li><i class="circle success"></i>__proto__</li>
+        <li><i class="circle primary"></i>prototype</li>
+        <li><i class="circle warn"></i>constructor</li>
       </ul>
     </aside>
     <section>
@@ -309,46 +309,47 @@
       <p>比如我们创造一个猫对象 Cat，他们都继承于 Cat.prototype，然后通过 Cat 构造函数生成</p>
       <pre>
         <code>
-          function Cat(variety) {
-            // 猫咪的品种
-            this.variety = variety;
-          }
+function Cat(variety) {
+  // 猫咪的品种
+  this.variety = variety;
+}
 
-          Cat.prototype = {
-            // 猫咪都会喵喵叫
-            say: function() {
-              console.log('meow');
-            },
-            jump: function() {
-              console.log('jump');
-            }
-          };
+Cat.prototype = {
+  // 猫咪都会喵喵叫
+  say: function() {
+    console.log('meow');
+  },
+  jump: function() {
+    console.log('jump');
+  }
+};
         </code>
       </pre>
       <p>然后我们再通过这个 Cat 原型生成两个新的对象：</p>
       <pre>
         <code>
-          var kangkang = new Cat('ju');
-          // 会捕鱼
-          kangkang.fishing = function() {
-            console.log('fishing');
-          }
-          // 学会了神奇的叫法
-          kangkang.say = function() {
-            console.log('wangwang');
-          }
+var kangkang = new Cat('ju');
+// 会捕鱼
+kangkang.fishing = function() {
+  console.log('fishing');
+}
+// 学会了神奇的叫法
+kangkang.say = function() {
+  console.log('wangwang');
+}
 
-          var paopao = new Cat('buou');
-          // 会跳舞
-          paopao.dancing = function() {
-            console.log('dancing');
-          }
-          // 学会了神奇的叫法
-          paopao.say = function() {
-            console.log('chongya');
-          }
+var paopao = new Cat('buou');
+// 会跳舞
+paopao.dancing = function() {
+  console.log('dancing');
+}
+// 学会了神奇的叫法
+paopao.say = function() {
+  console.log('chongya');
+}
         </code>
       </pre>
+      <p>上面的关系的示意图：</p>
       <figure>
         <svg width="532px" height="317px" viewBox="0 0 532 317" version="1.1" xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -453,19 +454,20 @@
           </g>
         </svg>
       </figure>
+      <p>根据绿色的原型链，我们就可以知道下面的代码的执行情况了</p>
       <pre>
         <code>
-          kangkang.fishing(); // fishing
-          paopao.dancing(); // dancing
+kangkang.fishing(); // fishing
+paopao.dancing(); // dancing
 
-          kangkang.say(); // wangwang
-          paopao.say(); // chongya
+kangkang.say(); // wangwang
+paopao.say(); // chongya
 
-          kangkang.jump(); // jump 沿着原型链可以找到
-          paopao.jump(); // jump 沿着原型链可以找到
+kangkang.jump(); // jump 沿着原型链可以找到
+paopao.jump(); // jump 沿着原型链可以找到
 
-          kangkang.age // undefined 沿着原型链找到尽头也没有找到
-          paopao.age // undefined 沿着原型链找到尽头也没有找到
+kangkang.age // undefined 沿着原型链找到尽头也没有找到
+paopao.age // undefined 沿着原型链找到尽头也没有找到
         </code>
       </pre>
     </section>

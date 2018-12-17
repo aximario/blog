@@ -37,8 +37,19 @@ p {
   color: #737778;
 }
 
+code {
+  font-family: Monaco, Menlo, Consolas, 'Courier New', Courier, monospace;
+}
+
 pre {
   overflow: scroll;
+  background: #4d4d4d;
+  border-radius: 1em;
+  padding: 1em;
+}
+
+pre > code {
+  color: #eee;
 }
 
 article {
@@ -56,7 +67,7 @@ header > p {
 aside {
   background: #e0e0e0;
   border-radius: .5em;
-  padding: .5em;
+  padding: 1em;
 }
 
 aside > ul {
@@ -94,4 +105,29 @@ figure {
 svg {
   max-width: 100%;
   height: auto;
+}
+
+.circle {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+}
+
+.success,
+.primary,
+.warn {
+  vertical-align: middle;
+  margin-right: 10px;
+}
+.success {
+  background-color: #7ED321;
+}
+
+.primary {
+  background-color: #4A90E2;
+}
+
+.warn {
+  background-color: #F5A623;
 }
