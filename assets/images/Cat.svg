@@ -1,1 +1,105 @@
-<svg width="532" height="317" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><rect x="1" y="1" width="132" height="76" rx="38" stroke="#4A4A4A" stroke-width="2"/><text font-family="Chalkboard-Bold, Chalkboard" font-size="14" font-weight="bold" fill="#000"><tspan x="44.159" y="35">Object</tspan> <tspan x="35.496" y="57">prototype</tspan></text><rect x="1" y="1" width="132" height="76" rx="38" stroke="#4A4A4A" stroke-width="2" transform="translate(390)"/><text font-family="Chalkboard-Bold, Chalkboard" font-size="14" font-weight="bold" fill="#000" transform="translate(390)"><tspan x="55.955" y="35">Cat</tspan> <tspan x="29.386" y="57">constructor</tspan></text><rect x="1" y="1" width="132" height="76" rx="38" stroke="#4A4A4A" stroke-width="2" transform="translate(195)"/><text font-family="Chalkboard-Bold, Chalkboard" font-size="14" font-weight="bold" fill="#000" transform="translate(195)"><tspan x="39.534" y="35">Function</tspan> <tspan x="35.496" y="57">prototype</tspan></text><g stroke="#7ED321"><path d="M191 39.5h-45" stroke-width="2" stroke-linecap="square"/><path fill="#7ED321" d="M137 39l10-4v8z"/></g><g stroke="#7ED321"><path d="M384 39.5h-48.5" stroke-width="2" stroke-linecap="square"/><path fill="#7ED321" d="M333 39l10-4v8z"/></g><rect x="1" y="1" width="132" height="76" rx="38" stroke="#4A4A4A" stroke-width="2" transform="translate(398 179)"/><text font-family="Chalkboard-Bold, Chalkboard" font-size="14" font-weight="bold" fill="#000" transform="translate(398 179)"><tspan x="55.955" y="35">Cat</tspan> <tspan x="35.496" y="57">prototype</tspan></text><rect x="1" y="1" width="132" height="76" rx="38" stroke="#4A4A4A" stroke-width="2" transform="translate(199 112)"/><text font-family="Chalkboard-Bold, Chalkboard" font-size="14" font-weight="bold" fill="#000" transform="translate(199 112)"><tspan x="36.741" y="43">kangkang</tspan></text><rect x="1" y="1" width="132" height="76" rx="38" stroke="#4A4A4A" stroke-width="2" transform="translate(199 239)"/><text font-family="Chalkboard-Bold, Chalkboard" font-size="14" font-weight="bold" fill="#000" transform="translate(199 239)"><tspan x="44.636" y="43">paopao</tspan></text><g stroke="#7ED321"><path d="M338 162l56 35" stroke-width="2" stroke-linecap="square"/><path fill="#7ED321" d="M398.59 199.898l-10.566-2.092 4.357-6.709z"/></g><g stroke="#7ED321"><path d="M339 277l53-39" stroke-width="2" stroke-linecap="square"/><path fill="#7ED321" d="M397.336 234.097l-5.417 9.308-4.925-6.304z"/></g><g stroke="#F5A623"><path d="M486.5 82.5V174" stroke-width="2" stroke-linecap="square"/><path fill="#F5A623" d="M486.5 81l4.5 9h-9z"/></g><g stroke="#4A90E2"><path d="M426.5 80.5V167" stroke-width="2" stroke-linecap="square"/><path fill="#4A90E2" d="M426.5 176l4.5-9h-9z"/></g><g stroke="#7ED321"><path fill="#7ED321" d="M118.603 74.25l10.044.603-4.5 7.794z"/><path d="M413.61 180.957c-34.274-54.365-84.75-81.547-151.426-81.547-66.677 0-112.256-6.98-136.735-20.941" stroke-width="2" stroke-linecap="square"/></g></g></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="532px" height="317px" viewBox="0 0 532 317" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Cat</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Cat">
+            <g>
+                <g id="objectPrototype">
+                    <g id="ObjectPrototype">
+                        <g id="object" stroke="#4A4A4A" stroke-width="2">
+                            <rect id="Rectangle" x="1" y="1" width="132" height="76" rx="38"></rect>
+                        </g>
+                        <text id="Object-prototype" font-family="CourierNewPS-BoldMT, Courier New" font-size="14" font-weight="bold" fill="#000000">
+                            <tspan x="41.7958984" y="35">Object</tspan>
+                            <tspan x="29.1938477" y="51">prototype</tspan>
+                        </text>
+                    </g>
+                </g>
+                <g id="cat-constructor" transform="translate(390.000000, 0.000000)">
+                    <g id="Group">
+                        <g id="object" stroke="#4A4A4A" stroke-width="2">
+                            <rect id="Rectangle" x="1" y="1" width="132" height="76" rx="38"></rect>
+                        </g>
+                        <text id="Cat-constructor" font-family="CourierNewPS-BoldMT, Courier New" font-size="14" font-weight="bold" fill="#000000">
+                            <tspan x="54.3979492" y="35">Cat</tspan>
+                            <tspan x="20.7924805" y="51">constructor</tspan>
+                        </text>
+                    </g>
+                </g>
+                <g id="functionPrototype" transform="translate(195.000000, 0.000000)">
+                    <g id="FunctionPrototype">
+                        <g id="object" stroke="#4A4A4A" stroke-width="2">
+                            <rect id="Rectangle" x="1" y="1" width="132" height="76" rx="38"></rect>
+                        </g>
+                        <text id="Function-prototype" font-family="CourierNewPS-BoldMT, Courier New" font-size="14" font-weight="bold" fill="#000000">
+                            <tspan x="33.3945312" y="35">Function</tspan>
+                            <tspan x="29.1938477" y="51">prototype</tspan>
+                        </text>
+                    </g>
+                </g>
+                <g id="Group-2" transform="translate(137.000000, 35.000000)" stroke="#7ED321">
+                    <path d="M54,4.5 L9,4.5" id="Line" stroke-width="2" stroke-linecap="square"></path>
+                    <polygon id="Triangle" fill="#7ED321" transform="translate(5.000000, 4.000000) rotate(-90.000000) translate(-5.000000, -4.000000) " points="5 -1 9 9 1 9"></polygon>
+                </g>
+                <g id="Group-2" transform="translate(333.000000, 35.000000)" stroke="#7ED321">
+                    <path d="M51,4.5 L2.5,4.5" id="Line" stroke-width="2" stroke-linecap="square"></path>
+                    <polygon id="Triangle" fill="#7ED321" transform="translate(5.000000, 4.000000) rotate(-90.000000) translate(-5.000000, -4.000000) " points="5 -1 9 9 1 9"></polygon>
+                </g>
+                <g id="cat-prototype" transform="translate(398.000000, 179.000000)">
+                    <g id="Group-3">
+                        <g id="object" stroke="#4A4A4A" stroke-width="2">
+                            <rect id="Rectangle" x="1" y="1" width="132" height="76" rx="38"></rect>
+                        </g>
+                        <text id="Cat-prototype" font-family="CourierNewPS-BoldMT, Courier New" font-size="14" font-weight="bold" fill="#000000">
+                            <tspan x="54.3979492" y="35">Cat</tspan>
+                            <tspan x="29.1938477" y="51">prototype</tspan>
+                        </text>
+                    </g>
+                </g>
+                <g id="kangkang" transform="translate(199.000000, 112.000000)">
+                    <g id="Group-3">
+                        <g id="object" stroke="#4A4A4A" stroke-width="2">
+                            <rect id="Rectangle" x="1" y="1" width="132" height="76" rx="38"></rect>
+                        </g>
+                        <text id="kangkang" font-family="CourierNewPS-BoldMT, Courier New" font-size="14" font-weight="bold" fill="#000000">
+                            <tspan x="33.3945312" y="43">kangkang</tspan>
+                        </text>
+                    </g>
+                </g>
+                <g id="paopao" transform="translate(199.000000, 239.000000)">
+                    <g id="Group-3">
+                        <g id="object" stroke="#4A4A4A" stroke-width="2">
+                            <rect id="Rectangle" x="1" y="1" width="132" height="76" rx="38"></rect>
+                        </g>
+                        <text id="paopao" font-family="CourierNewPS-BoldMT, Courier New" font-size="14" font-weight="bold" fill="#000000">
+                            <tspan x="42.2958984" y="43">paopao</tspan>
+                        </text>
+                    </g>
+                </g>
+                <g id="Group-4" transform="translate(338.000000, 162.000000)" stroke="#7ED321">
+                    <path d="M0,0 L56,35" id="Line-2" stroke-width="2" stroke-linecap="square"></path>
+                    <polygon id="Triangle-2" fill="#7ED321" transform="translate(56.396226, 35.174994) rotate(123.000000) translate(-56.396226, -35.174994) " points="56.396226 30.1749942 60.396226 40.1749942 52.396226 40.1749942"></polygon>
+                </g>
+                <g id="Group-5" transform="translate(339.000000, 230.000000)" stroke="#7ED321">
+                    <path d="M0,47 L53,8" id="Line-3" stroke-width="2" stroke-linecap="square"></path>
+                    <polygon id="Triangle-2" fill="#7ED321" transform="translate(54.396226, 7.174994) rotate(52.000000) translate(-54.396226, -7.174994) " points="54.396226 2.17499424 58.396226 12.1749942 50.396226 12.1749942"></polygon>
+                </g>
+                <g id="Group-8" transform="translate(471.000000, 81.000000)" stroke="#F5A623">
+                    <path d="M4.5,1.5 L4.5,93" id="Line-4" stroke-width="2" stroke-linecap="square"></path>
+                    <polygon id="Triangle-3" fill="#F5A623" points="4.5 0 9 9 0 9"></polygon>
+                </g>
+                <g id="Group-7" transform="translate(436.000000, 80.000000)" stroke="#4A90E2">
+                    <path d="M4.5,0.5 L4.5,87" id="Line-4" stroke-width="2" stroke-linecap="square"></path>
+                    <polygon id="Triangle-3" fill="#4A90E2" transform="translate(4.500000, 91.500000) scale(1, -1) translate(-4.500000, -91.500000) " points="4.5 87 9 96 0 96"></polygon>
+                </g>
+                <g id="Group-6" transform="translate(116.000000, 70.000000)" stroke="#7ED321">
+                    <polygon id="Triangle-3" fill="#7ED321" transform="translate(6.500000, 6.500000) rotate(-60.000000) translate(-6.500000, -6.500000) " points="6.5 2 11 11 2 11"></polygon>
+                    <path d="M297.609375,110.957031 C263.335937,56.5924479 212.860677,29.4101563 146.183594,29.4101563 C79.5065104,29.4101563 33.9283854,22.4296875 9.44921875,8.46875" id="Line-5" stroke-width="2" stroke-linecap="square"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
