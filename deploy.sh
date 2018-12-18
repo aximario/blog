@@ -1,4 +1,4 @@
 #!/bin/sh
 
 scp *.html *.css root@axi:/data/blog
-scp -r ./statics root@axi:/data/blog
+scp -r ./assets root@axi:/data/blog
