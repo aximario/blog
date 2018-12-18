@@ -23,6 +23,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/manifest.json">
   <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="./statics/lib/monokai.css">
   <title>JS 中的原型链</title>
 </head>
 
@@ -44,15 +45,15 @@
     <section>
       <p>JS 里的第一个对象是 <code>Object.prototype</code>，所有的对象都继承于它。</p>
       <figure>
-        <img src="./statics/objectPrototype.svg">
+        <img src="./statics/image/objectPrototype.svg">
       </figure>
       <p>然后就有了各种对象。</p>
       <figure>
-        <img src="./statics/prototype.svg">
+        <img src="./statics/image/prototype.svg">
       </figure>
       <p>接着构造函数出现了，用来创造新对象，创造出的新对象都继承了相应的 prototype，构造函数继承自<code>Function.prototype</code>。</p>
       <figure>
-        <img src="./statics/prototype-constructor.svg">
+        <img src="./statics/image/prototype-constructor.svg">
       </figure>
       <pre>
         <code>
@@ -111,7 +112,7 @@ paopao.say = function() {
       </pre>
       <p>上面的关系的示意图：</p>
       <figure>
-        <img src="./statics/Cat.svg">
+        <img src="./statics/image/Cat.svg">
       </figure>
       <p>根据绿色的原型链，我们就可以知道下面的代码的执行情况了</p>
       <pre>
@@ -131,6 +132,8 @@ paopao.age // undefined 沿着原型链找到尽头也没有找到
       </pre>
     </section>
   </article>
+  <script src="./statics/lib/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
 </body>
 
 </html>

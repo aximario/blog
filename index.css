@@ -42,15 +42,8 @@ code {
   font-family: Monaco, Menlo, Consolas, 'Courier New', Courier, monospace;
 }
 
-pre {
-  overflow: scroll;
-  background: #4d4d4d;
-  border-radius: 1em;
-  padding: 1em;
-}
-
 pre > code {
-  color: #eee;
+  border-radius: 1em;
 }
 
 article {
