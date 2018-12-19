@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./assets/styles/monokai.css">
+    <title>JS 中的原型链</title>
+    <script>
+        var _mtac = {};
+        (function () {
+            var mta = document.createElement("script");
+            mta.src = "//pingjs.qq.com/h5/stats.js?v2.0.4";
+            mta.setAttribute("name", "MTAH5");
+            mta.setAttribute("sid", "500621477");
+
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(mta, s);
+        })();
+    </script>
+</head>
+
+<body>
+    <article>
+        <header style="margin-bottom: .5em;">
+            <h1>CentOS 更目录下的各文件夹</h1>
+            <p>作者：阿希</p>
+            <p>更新于：2018-12-19</p>
+        </header>
+        <section>
+            <p><code>/bin</code>，用来存一些常用命令，<code>cd</code>，<code>ssh</code> 等</p>
+            <p><code>/sbin</code>，用来存管理员命令，普通用户不能用，例如 <code>shutdown, iptables</code> 等</p>
+            <p><code>/boot</code>，Linux 的启动文件和内核</p>
+            <p><code>/var</code>，该目录存放那些经常被修改的文件，包括各种日志、数据文件。如果做mail server，则需在Linux安装时将该目录设置为大空间。</p>
+            <p><code>/dev</code>，硬盘，分区，tty 等设备文件</p>
+            <p><code>/etc</code>，系统配置文件</p>
+            <p><code>/home</code>，用户空间，每个用户一个文件夹</p>
+            <p><code>/lib</code>，共享链接库</p>
+            <p><code>/media</code>，CD-ROM 设备的目录</p>
+            <p><code>/mnt</code>，移动设备文件系统</p>
+            <p><code>/opt</code>，存用户后来追加的应用程序</p>
+            <p><code>/tmp</code>，临时文件目录，重启时被清除</p>
+            <p><code>/usr</code>，文件系统经常很大，因为所有程序安装在这里</p>
+            <p><code>/usr/bin</code>，用户和管理员的标准命令。有些命令在 <code>/bin</code> 或 <code>/usr/local/bin</code> 中</p>
+            <p><code>/usr/include</code>，c/c++ 等各种开发语言环境的标准 include 文件</p>
+            <p><code>/usr/lib</code>，应用程序及程序包的连接库</p>
+            <p><code>/usr/local</code>，系统管理员安装的应用程序目录，本地安装的程序和其他东西在 <code>/usr/local</code> 下。这样可能在升级新版系统或新 distribution 时无须重新安装全部程序</p>
+            <p><code>/usr/local/share</code>，系统管理员安装的共享文件</p>
+            <p><code>/usr/sbin</code>，用户和管理员的标准命令</p>
+            <p><code>/usr/share</code>，存放使用手册等共享文件的目录</p>
+        </section>
+    </article>
+    <script src="https://cdn.bootcss.com/highlight.js/9.13.1/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+</body>
+
+</html>
