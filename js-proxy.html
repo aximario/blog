@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./assets/styles/monokai.css">
+    <title>JS 中的 proxy</title>
+    <script>
+        var _mtac = {};
+        (function () {
+            var mta = document.createElement("script");
+            mta.src = "//pingjs.qq.com/h5/stats.js?v2.0.4";
+            mta.setAttribute("name", "MTAH5");
+            mta.setAttribute("sid", "500621477");
+
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(mta, s);
+        })();
+    </script>
+</head>
+
+<body>
+    <article>
+        <header style="margin-bottom: .5em;">
+            <h1>JS 中的 proxy</h1>
+            <p>作者：阿希</p>
+            <p>更新于：2018-12-17</p>
+        </header>
+        <aside style="margin-bottom: 1em;">
+        </aside>
+        <section>
+            <p>Proxy 就是代理的意思。基于一个对象创建一个代理对象，这个代理对象可以代理对原对象的部分操作。</p>
+            <p>语法</p>
+            <pre>
+                <code>
+// target 表示被代理的对象
+// handler 表示想要代理的操作，是个对象
+const proxy = new Proxy(target, handler)
+                </code>
+            </pre>
+            <p>代理对象能代理的操作一共有 13 种</p>
+            <ol>
+                <li>get</li>
+                <li>set</li>
+                <li>has</li>
+                <li>apply</li>
+                <li>getPrototypeOf</li>
+                <li>setPrototypeOf</li>
+                <li>isExtensible</li>
+                <li>preventExtensions</li>
+                <li>getOwnPropertyDescriptor</li>
+                <li>defineProperty</li>
+                <li>deleteProperty</li>
+                <li>ownKeys</li>
+                <li>construct</li>
+            </ol>
+            <h2>get</h2>
+            <p>handler.get 用来代理源对象的属性访问。</p>
+            <pre>
+                <code>
+// 语法
+const handler = {
+    // target 被代理的对象
+    // property 操作的属性
+    // receiver Proxy 或者继承 Proxy 的对象
+    get(target, property, receiver) { // ... }
+}
+                </code>
+            </pre>
+            <p>例如：</p>
+            <pre>
+                <code>
+const handler = {
+    get(target, property, receiver) {
+        console.log(target, property, receiver);
+        return 10;
+    }
+}
+const p = new Proxy({}, handler);
+p.a // 10
+                </code>
+            </pre>
+            <h2>set</h2>
+            <p>handler.set 用来代理设置源对象的属性。</p>
+            <pre>
+                <code>
+// 语法
+const handler = {
+    // target 被代理的对象
+    // property 操作的属性
+    // value 被设置的值
+    // receiver 被调用的对象
+    get(target, property, value, receiver) { // ... }
+}
+                </code>
+            </pre>
+            <p>例如：</p>
+            <pre>
+                <code></code>
+            </pre>
+        </section>
+    </article>
+    <script src="https://cdn.bootcss.com/highlight.js/9.13.1/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+</body>
+
+</html>
