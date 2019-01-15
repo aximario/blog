@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="./assets/styles/monokai.css">
+  <title>DHCP</title>
+  <script>
+    var _mtac = {};
+    (function () {
+      var mta = document.createElement("script");
+      mta.src = "//pingjs.qq.com/h5/stats.js?v2.0.4";
+      mta.setAttribute("name", "MTAH5");
+      mta.setAttribute("sid", "500621477");
+
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(mta, s);
+    })();
+  </script>
+</head>
+
+<body>
+  <article>
+    <header style="margin-bottom: .5em;">
+      <h1>DNS 简介</h1>
+      <p>作者：阿希</p>
+      <p>更新于：2019-01-15</p>
+    </header>
+    <section>
+      <p>DNS（Domain Name System）域名系统的作用是查找域名对应的 IP。可以想象成一本电话本。</p>
+      <p>提供了 DNS 服务的服务器称做 DNS 服务器。我们想象中的 DNS 服务可能是只有一台 DNS 服务器，当我们需要解析域名时，向这台 DNS 服务器发送 DNS 查询请求就可以了。然后事实并非如此。</p>
+      <p>如果全球只用一台 DNS 服务器，虽然在逻辑上很清晰，但是会有下面几个问题：</p>
+      <ul>
+        <li>如果这台服务器出现了故障，整个因特网会随之瘫痪</li>
+        <li>这台服务器需要处理数亿台设备的 DNS 查询</li>
+        <li>因为只有一台服务器，对于远处的主机，通信时延会很大</li>
+        <li>这台服务器要频繁增加，删除，修改域名和 IP 的对应关系</li>
+      </ul>
+      <p>所以实际上的 DNS 服务并非是架设在一台服务器上，而是分层的架设在非常多的服务器上。</p>
+      <p>根域名服务器：13 个根域名服务器，由 12 个组织管理，分布于全球各地，截止 2019 年 1 月，现有 900 多台根域名服务器（包括镜像服务器）。<a>http://www.root-servers.org</a></p>
+      <ul>
+        <li>顶级域名服务器：com, net, org, name 等，也包括一些国家域，cn，cc 等</li>
+        <li>权威域名服务器：一些大学或者大公司维护的域名服务器</li>
+        <li>本地域名服务器：机构或者居民 ISP 提供的域名服务器</li>
+      </ul>
+      <p>一个 DNS 请求的大概情况如下：</p>
+      <figure>
+        <img src="./assets/images/dns.svg" />
+      </figure>
+    </section>
+</body>
+
+</html>
