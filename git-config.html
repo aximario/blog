@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Git Config</title>
+</head>
+<body>
+  <article>
+    <section>
+      <p>Git Config 分为 3 个层次：系统（system），用户（global）和本地（local）。</p>
+      <ul>
+        <li>系统（system），系统配置对全部用户有效</li>
+        <li>用户（global），只对该用户有效</li>
+        <li>本地（local），只对该仓库有效</li>
+      </ul>
+      <p>配置规则，以 local > global > system 覆盖配置。</p>
+    </section>
+    <section>
+      <h3>配置仓库用户信息</h3>
+      <pre>
+        <code>
+          # 公司仓库的配置
+          git config --global user.name xiangtuo
+          git config --global user.email xiangtuo@company.com
+
+          # 自己仓库的配置
+          git config --local user.name aximario
+          git config --local user.email aximario@qq.com
+        </code>
+      </pre>
+      <p>查看配置</p>
+      <pre>
+        <code>
+          git config --list
+          git config user.name
+          git config user.email
+        </code>
+      </pre>
+    </section>
+  </article>
+</body>
+</html>
