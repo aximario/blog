@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hans">
+<html lang="zh-Hans-CN">
 
 <head>
   <meta charset="UTF-8">
@@ -24,7 +24,7 @@
   <link rel="manifest" href="/manifest.json">
   <link rel="stylesheet" href="./index.css">
   <link rel="stylesheet" href="./assets/styles/monokai.css">
-  <title>DHCP</title>
+  <title>DNS</title>
   <script>
     var _mtac = {};
     (function () {
@@ -47,7 +47,18 @@
       <p>更新于：2019-01-15</p>
     </header>
     <section>
-      <p>DNS（Domain Name System）域名系统的作用是查找域名对应的 IP。可以想象成一本电话本。</p>
+      <h2>DNS 是什么</h2>
+      <p>DNS 全称 Domain Name System，中文译作域名系统。它是互联网的一项服务，用来查找域名对应的 IP。</p>
+      <p>比如平时我们在浏览器输入 <code>https://www.baidu.com</code>，实际上就是由 DNS 服务找到 <code>baidu.com</code> 对应的 IP 然后再完成的访问。</p>
+    </section>
+    <section>
+      <h2>为什么要用 DNS</h2>
+      <ul>
+        <li>不用记住难记的 IP 地址。</li>
+        <li>主机 IP 地址改变之后，只要对应的解析正确，也不影响访问。</li>
+      </ul>
+    </section>
+    <section>
       <p>提供了 DNS 服务的服务器称做 DNS 服务器。我们想象中的 DNS 服务可能是只有一台 DNS 服务器，当我们需要解析域名时，向这台 DNS 服务器发送 DNS 查询请求就可以了。然后事实并非如此。</p>
       <p>如果全球只用一台 DNS 服务器，虽然在逻辑上很清晰，但是会有下面几个问题：</p>
       <ul>
