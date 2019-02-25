@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" href="./index.css">
+  <title>Nginx 入门</title>
+  <script>
+      var _mtac = {};
+      (function() {
+        var mta = document.createElement("script");
+        mta.src = "//pingjs.qq.com/h5/stats.js?v2.0.4";
+        mta.setAttribute("name", "MTAH5");
+        mta.setAttribute("sid", "500621477");
+
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(mta, s);
+      })();
+  </script>
+</head>
+
+<body>
+  <article>
+    <header>SVG 入门</header>
+    <p>更新于 2018-11-18</p>
+    <aside>
+      <h1>大纲</h1>
+      <ul>
+        <li><a href="#nginx-introduction">1. Nginx 介绍</a></li>
+        <li><a href="#nginx-setup">2. Nginx 安装</a></li>
+        <li><a href="#nginx-configuration">3. Nginx 配置</a></li>
+      </ul>
+    </aside>
+
+    <section id="svg-rect">
+      <h1>1. rect</h1>
+      <p>矩形</p>
+      <pre>
+        <code>
+          &lt;rect x="10" y="10" width="30" height="30" \/&gt;
+          &lt;rect x="60" y="10" rx="10" ry="10" width="30" height="30" \/&gt;
+        </code>
+      </pre>
+      <svg>
+        <rect x="10" y="10" width="30" height="30"/>
+        <rect x="60" y="10" rx="10" ry="10" width="30" height="30"/>
+      </svg>
+    </section>
+
+    <section id="svg-circle">
+      <h1>1. circle</h1>
+      <p>圆形</p>
+      <pre>
+        <code>
+          &lt;circle cx="25" cy="75" r="20"/>
+        </code>
+      </pre>
+      <svg>
+        <circle cx="25" cy="75" r="20"/>
+      </svg>
+    </section>
+
+    <section id="nginx-setup">
+      <h1>2. Nginx 安装</h1>
+      <p>
+        <a href="http://nginx.org/en/linux_packages.html">Nginx 官方安装指南</a> 里有详尽的各系统的安装方式，下面主要记录下我自己尝试过的安装方式。
+      </p>
+      <h2>2.1 在 CentOS 7 上 安装 Nginx</h2>
+      <p><strong>设置 yum 仓库</strong></p>
+      <p>在
+        <code>/etc/yum.repos.d/nginx.repo</code> 文件里加上下面的设置</p>
+      <pre>
+        <code>
+          [nginx]
+          name=nginx repo
+          baseurl=http://nginx.org/packages/centos/7/$basearch/
+          gpgcheck=0
+          enabled=1
+        </code>
+      </pre>
+      <p><strong>安装</strong></p>
+      <pre>
+        <code>yum install nginx</code>
+      </pre>
+      <p><strong>启动</strong></p>
+      <pre>
+        <code>nginx</code>
+      </pre>
+    </section>
+
+    <section id="nginx-configuration">
+      <h1>3. Nginx 配置</h1>
+      <p>Nginx 配置分为 <strong>main</strong>，<strong>events</strong>，<strong>http</strong>，<strong>mail</strong>，<strong>stream</strong>，<strong>server</strong>，<strong>location</strong> 这几个上下文。</p>
+      <h2>3.1 处理没有匹配到的 server</h2>
+      <p>在写了多个 server 配置之后，如果有请求来，没有匹配到任何的 server，nginx 会默认给第一个 server 处理。如果不想处理没有匹配到 server 的请求，可以这么配置：</p>
+      <pre>
+        <code>
+          server {
+              listen 80 default_server;
+              server_name _;
+              return 444;
+          }
+        </code>
+      </pre>
+    </section>
+  </article>
+</body>
+
+</html>
