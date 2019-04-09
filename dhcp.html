@@ -44,12 +44,68 @@
     <header style="margin-bottom: .5em;">
       <h1>DHCP 简介</h1>
       <p>作者：阿希</p>
-      <p>更新于：2018-12-23</p>
+      <p>更新于：2019-04-09</p>
     </header>
     <section>
-      <p>DHCP 的全称是动态主机设置协议（Dynamic Host Configuration Protocol）。</p>
-      <p>当你去大学图书馆自习的时候，每个座位都有一个座位号，当你刷了卡之后可以拿到一个座位号，然后你就可以去那个座位上自习了。DHCP 的作用和这个类似，它分配的不是座位号，而是 IP 地址。</p>
+      <p>DHCP 的全称是动态主机设置协议（Dynamic Host Configuration Protocol）。它是用来给接入网络的主机分配 IP 地址用的协议。</p>
+      <p>当你去大学图书馆自习的时候，每个座位都有一个座位号，当你刷了卡之后可以拿到一个座位号，然后你就可以去那个座位上自习了。DHCP 的作用和这个类似。</p>
     </section>
+    <section>
+      <h2>发现 DHCP 服务器</h2>
+      <pre>
+        <code>
+          DHCP discover message
+          src: 0.0.0.0,68
+          dest: 255.255.255.255,67
+          DCHPDISCOVER
+          yiaddr: 0.0.0.0
+          transaction ID: 654
+        </code>
+      </pre>
+      <p>主机通过使用 <strong>DHCP 发现报文（DHCP discover message）</strong>来发现 DHCP 服务器。主机通过 67 端口向广播地址 255.255.255.255 发送一个 DHCP 发现报文，本主机的 IP 地址设置为 0.0.0.0。</p>
+      <h2>DHCP 服务器提供服务</h2>
+      <pre>
+          <code>
+            DHCP offer message
+            src: 223.1.2.5,67
+            dest: 255.255.255.255,68
+            DCHPOFFER
+            yiaddr: 223.1.2.4
+            transaction ID: 654
+            DHCP server ID: 223.1.2.5
+            Lifetime: 3600 secs
+          </code>
+      </pre>
+      <p>当网络中的 DHCP 服务器收到广播请求后，会向广播发送分配的结果，因为网络中可能不止 1 台 DHCP 服务器，所以每个 DHCP 服务器都会发送自己分配的结果。</p>
+      <h2>DHCP 请求</h2>
+      <pre>
+          <code>
+            DHCP request message
+            src: 0.0.0.0,68
+            dest: 255.255.255.255,67
+            DCHPREQUEST
+            yiaddr: 223.1.2.4
+            transaction ID: 655
+            DHCP server ID: 223.1.2.5
+            Lifetime: 3600 secs
+          </code>
+      </pre>
+      <p>当主机收到 DHCP offer message 之后，会从中选择一个合适的结果，然后进行响应</p>
+      <h2>DCHP ACK</h2>
+      <pre>
+          <code>
+            DHCP ack message
+            src: 223.1.2.5,67
+            dest: 255.255.255.255,68
+            DCHPOFFER
+            yiaddr: 223.1.2.4
+            transaction ID: 655
+            DHCP server ID: 223.1.2.5
+            Lifetime: 3600 secs
+          </code>
+      </pre>
+      <p>当 DHCP 收到 DHCP request message 之后，会发送一个 DHCP 确认响应告诉主机可以使用这个 IP 了。</p>
+  </section>
 </body>
 
 </html>
