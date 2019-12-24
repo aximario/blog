@@ -1,3 +1,14 @@
+/* reset */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+/* 全局样式 */
 body {
   margin: 0 auto;
   max-width: 700px;
@@ -8,6 +19,15 @@ body {
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+section {
+  margin-bottom: 1em;
+}
+
+h3 {
+  line-height: 2;
+  margin-bottom: .5em;
 }
 
 ul {
@@ -33,6 +53,7 @@ a:hover {
 
 p {
   margin: 0;
+  text-indent: 1em;
   line-height: 1.5;
   color: #737778;
   word-break: break-all;
@@ -80,10 +101,13 @@ article > p {
 }
 
 article h1 {
+  font-size: 24px;
+}
+
+article h2 {
   font-size: 18px;
 }
 
-article h2,
 article h3,
 article h4,
 article h5,
@@ -124,4 +148,29 @@ img {
 
 .warn {
   background-color: #F5A623;
+}
+
+.footer {
+  margin-top: 20px;
+  background-color: #eee;
+  padding: 1em;
+  border-radius: 6px;
+}
+
+.footer .feed-qrcode {
+  width: 100px;
+  height: 100px;
+  margin-top: 10px;
+  margin-left: 1em;
+}
+
+.footer .weibo-link {
+  margin: 0 6px;
+}
+
+.footer .weibo-icon {
+  width: 16px;
+  height: 16px;
+  vertical-align: text-top;
+  margin-right: 4px;
 }

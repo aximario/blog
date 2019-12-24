@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="./assets/styles/monokai.css">
+  <title>写给新手 - 搭建自己的博客</title>
+  <script>
+    var _mtac = {};
+    (function () {
+      var mta = document.createElement("script");
+      mta.src = "//pingjs.qq.com/h5/stats.js?v2.0.4";
+      mta.setAttribute("name", "MTAH5");
+      mta.setAttribute("sid", "500621477");
+
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(mta, s);
+    })();
+  </script>
+</head>
+
+<body>
+  <article>
+    <header style="margin-bottom: .5em;">
+      <h1>写给新手 - 搭建自己的博客</h1>
+      <p>作者：阿希</p>
+    </header>
+    <section>
+      <h2>简介</h2>
+      <p>现在搭建自己的博客站点的方式真的非常多，比方说 WordPress，Hexo，Jekyll 等等。而且网上的教程也非常全面。那么写给新手的博客搭建教程是什么呢？没错，刀耕火种的上传静态 html 到服务器。也是我现在在用的一种方式。</p>
+      <p>我为什么要用这种方式，而不用现在很火的这些静态站点生成工具，然后直接写 <code>markdown</code> 就一键生成呢？其实我也用过，但是说实话我的博客产量真的很少，也不需要评论功能什么的，所以就怎么简单怎么来了。但是同时我又发现，用最古老的方式写博客还挺有意思。互联网诞生之初不就是在网上分享各种 <code>html</code> 文档吗！</p>
+    </section>
+    <section>
+      <h2>准备</h2>
+      <p>废话不多说直接开搞，首先我买了一个腾讯云的服务器，给它装好系统，装系统的时候不要设置秘钥（因为麻烦），设置密码就可以了。我装的是 <code>CentOS 7</code>。</p>
+      <p>然后买了个域名 axi.name。然后把域名解析到我的服务器上，还特意给博客用了个二级域名，<a href="http://blog.axi.name">blog.axi.name</a>。然后就是备案，挺麻烦的，等超久。现在 .name 的域名已经不支持备案了，想备案的话可以申请其他的。</p>
+    </section>
+    <section>
+      <h2>登陆服务器</h2>
+      <p>有三种方式登陆服务器</p>
+      <ul>
+        <li>1. 腾讯云网页控制台登陆</li>
+        <li>1. 电脑终端 ssh 账号密码登陆</li>
+        <li>3. 终端 ssh 秘钥登陆</li>
+      </ul>
+      <p>我使用的是第二种，通过 ssh 账号密码登陆。纯粹是因为剩下两种很麻烦。第一种要登陆网页，扫一万个码，还要 MFA，还要密码才能登陆网页终端。第三种要配置 ssh 秘钥，生成秘钥，上传服务器，然后有时担心安全还要给秘钥设置一个 phase，也相当于输入密码了。可以，但没必要。</p>
+      <p>使用第二种就很方便了，一条命令搞定</p>
+      <p>
+        <pre>
+          <code>
+            # ssh user@ip
+            # 例如
+            ssh root@123.123.123.123
+          </code>
+        </pre>
+        然后输入密码就完事儿了。如果是第一次登陆还会要求你输入 yes/no，这个大概就是让你确认是否信任要登陆的服务器。输入 yes 就可以了。
+      </p>
+      <p>如果你用的 <a href="https://ohmyz.sh/">zsh</a> 的话，你还可以创建一个快捷命令登陆服务器</p>
+      <p>
+        打开 zsh 配置文件：
+        <pre>
+          <code>
+            vi ~/.zshrc 
+          </code>
+        </pre>
+        然后再最后一行写上
+        <pre>
+          <code>
+            # sshxxx 随便你取个名字，只要你知道是用来登陆你的某台服务器的命令的缩写就行
+            # 记得不要取了个和系统本来存在的命令重复的命令，比方说 cd, cp, mv 等等
+            alias sshxxx="ssh root@123.123.123.123"
+          </code>
+        </pre>
+      </p>
+      <p>设置完成后，以后只要在终端输入 <code>sshxxx</code> 就可以了，省的每次都去输入 ip 地址，又长又不好记</p>
+    </section>
+    <section>
+      <h2>安装 Nginx</h2>
+      <p>为啥要安装 nginx 呢？因为服务器虽然可以初始好了，但是啥事儿也干不了。就像店铺修好了，你得开张呀。而 <a href="http://nginx.org/">Nginx</a> 就是搞这个的。</p>
+      <p>
+        怎么安装 Nginx 可以去看 <a href="http://nginx.org/en/docs/install.html">Nginx 官方安装文档</a>。安装好了之后执行
+        <pre>
+          <code>
+            nginx
+          </code>
+        </pre>
+        启动。
+      </p>
+      <p>然后找到 nginx 的安装地址，我的服务器上是 <code>/etc/nginx</code>。然后在 <code>/etc/nginx/conf.d</code> 文件夹下新建一个 <code>blog.conf</code> 配置文件，内容如下：</p>
+      <p>
+        <pre>
+          <code>
+            # blog.axi.name 就是你的博客首页地址，申请的域名这个时候就可以派上用场了
+            # /home/blog 就是服务器上存放你博客 html 文件的文件夹
+            server {
+              listen 80;
+              server_name blog.axi.name;
+          
+              location / {
+                root /home/blog;
+              }
+            }
+          </code>
+        </pre>
+      </p>
+      <p>然后执行</p>
+      <p>
+        <pre>
+          <code>
+            nginx -t
+            # 如果看到类似下面的提示就说明成功了
+            # nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+            # nginx: configuration file /etc/nginx/nginx.conf test is successful
+            # 然后执行
+            nginx -s reload
+            # 重载 nginx 服务
+          </code>
+        </pre>
+      </p>
+    </section>
+    <section>
+      <h2>写博客</h2>
+      <p>这个我就不说了，就是写 html，写 css，不知道怎么写的去看看教程，上手很简单。随便你怎么造作都行。</p>
+    </section>
+    <section>
+      <h2>上传到服务器</h2>
+      <p>上传文件到服务器可以去下一个 <a href="https://filezilla-project.org/">FileZilla</a>。可视化操作，自己琢磨这就会用了。</p>
+      <p>或者使用 <code>scp</code> 命令，推荐，方便</p>
+      <p>
+        <pre>
+          <code>
+            # scp -r /path/to/your/local/blogfiles user@ip:/path/to/your/remote/blogfiles
+            scp -r ~/blog root@123.123.123.123:/home
+          </code>
+        </pre>
+      </p>
+      <p>当然如果你是用 zsh，也可以和上面一样，把这条命令写成一个自定义命令</p>
+    </section>
+
+    <!-- 打赏和评论方式 -->
+    <div class="footer">
+      <section>
+        <h3>关于评论</h3>
+        <p>可以，但没必要。估计也没啥评论，搞得不好网站说不定还被封。真有不解之处可以微博<a class="weibo-link" href="https://weibo.com/u/2970221897?refer_flag=1001030103_&is_hot=1"><img class="weibo-icon" src="http://blogassets.axi.name/images/weibo.svg" alt="weibo">希饭配粥</a>私信我。</p>
+      </section>
+      <section>
+        <h3>打赏</h3>
+        <p>觉得有帮助可以打赏喝杯茶，五块十块不嫌多，一毛两毛也是爱</p>
+        <img class="feed-qrcode" src="http://blogassets.axi.name/81577154180_.pic.jpg" alt="qrcode">
+      </section>
+    </div>
+
+  </article>
+  <script src="https://cdn.bootcss.com/highlight.js/9.13.1/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+</body>
+
+</html>
