@@ -28,8 +28,8 @@
 <body>
   <article>
     <header style="margin-bottom: .5em;">
-      <h1>写给新手 - 搭建自己的博客</h1>
-      <p>作者：阿希</p>
+      <h1><a href="http://blog.axi.name/blog-1.html">写给新手 - 搭建自己的博客</a></h1>
+      <p class="author">作者：阿希</p>
     </header>
     <section>
       <h2>简介</h2>
@@ -46,7 +46,7 @@
       <p>有三种方式登陆服务器</p>
       <ul>
         <li>1. 腾讯云网页控制台登陆</li>
-        <li>1. 电脑终端 ssh 账号密码登陆</li>
+        <li>2. 电脑终端 ssh 账号密码登陆</li>
         <li>3. 终端 ssh 秘钥登陆</li>
       </ul>
       <p>我使用的是第二种，通过 ssh 账号密码登陆。纯粹是因为剩下两种很麻烦。第一种要登陆网页，扫一万个码，还要 MFA，还要密码才能登陆网页终端。第三种要配置 ssh 秘钥，生成秘钥，上传服务器，然后有时担心安全还要给秘钥设置一个 phase，也相当于输入密码了。可以，但没必要。</p>
@@ -54,9 +54,9 @@
       <p>
         <pre>
           <code>
-            # ssh user@ip
-            # 例如
-            ssh root@123.123.123.123
+# ssh user@ip
+# 例如
+ssh root@123.123.123.123
           </code>
         </pre>
         然后输入密码就完事儿了。如果是第一次登陆还会要求你输入 yes/no，这个大概就是让你确认是否信任要登陆的服务器。输入 yes 就可以了。
@@ -66,15 +66,15 @@
         打开 zsh 配置文件：
         <pre>
           <code>
-            vi ~/.zshrc 
+vi ~/.zshrc 
           </code>
         </pre>
         然后再最后一行写上
         <pre>
           <code>
-            # sshxxx 随便你取个名字，只要你知道是用来登陆你的某台服务器的命令的缩写就行
-            # 记得不要取了个和系统本来存在的命令重复的命令，比方说 cd, cp, mv 等等
-            alias sshxxx="ssh root@123.123.123.123"
+# sshxxx 随便你取个名字，只要你知道是用来登陆你的某台服务器的命令的缩写就行
+# 记得不要取了个和系统本来存在的命令重复的命令，比方说 cd, cp, mv 等等
+alias sshxxx="ssh root@123.123.123.123"
           </code>
         </pre>
       </p>
@@ -83,29 +83,21 @@
     <section>
       <h2>安装 Nginx</h2>
       <p>为啥要安装 nginx 呢？因为服务器虽然可以初始好了，但是啥事儿也干不了。就像店铺修好了，你得开张呀。而 <a href="http://nginx.org/">Nginx</a> 就是搞这个的。</p>
-      <p>
-        怎么安装 Nginx 可以去看 <a href="http://nginx.org/en/docs/install.html">Nginx 官方安装文档</a>。安装好了之后执行
-        <pre>
-          <code>
-            nginx
-          </code>
-        </pre>
-        启动。
-      </p>
+      <p>怎么安装 Nginx 可以去看 <a href="http://nginx.org/en/docs/install.html">Nginx 官方安装文档</a>。安装好了之后执行<code>nginx</code>启动。</p>
       <p>然后找到 nginx 的安装地址，我的服务器上是 <code>/etc/nginx</code>。然后在 <code>/etc/nginx/conf.d</code> 文件夹下新建一个 <code>blog.conf</code> 配置文件，内容如下：</p>
       <p>
         <pre>
           <code>
-            # blog.axi.name 就是你的博客首页地址，申请的域名这个时候就可以派上用场了
-            # /home/blog 就是服务器上存放你博客 html 文件的文件夹
-            server {
-              listen 80;
-              server_name blog.axi.name;
-          
-              location / {
-                root /home/blog;
-              }
-            }
+# blog.axi.name 就是你的博客首页地址，申请的域名这个时候就可以派上用场了
+# /home/blog 就是服务器上存放你博客 html 文件的文件夹
+server {
+  listen 80;
+  server_name blog.axi.name;
+
+  location / {
+    root /home/blog;
+  }
+}
           </code>
         </pre>
       </p>
@@ -113,13 +105,13 @@
       <p>
         <pre>
           <code>
-            nginx -t
-            # 如果看到类似下面的提示就说明成功了
-            # nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
-            # nginx: configuration file /etc/nginx/nginx.conf test is successful
-            # 然后执行
-            nginx -s reload
-            # 重载 nginx 服务
+nginx -t
+# 如果看到类似下面的提示就说明成功了
+# nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+# nginx: configuration file /etc/nginx/nginx.conf test is successful
+# 然后执行
+nginx -s reload
+# 重载 nginx 服务
           </code>
         </pre>
       </p>
@@ -135,8 +127,8 @@
       <p>
         <pre>
           <code>
-            # scp -r /path/to/your/local/blogfiles user@ip:/path/to/your/remote/blogfiles
-            scp -r ~/blog root@123.123.123.123:/home
+# scp -r /path/to/your/local/blogfiles user@ip:/path/to/your/remote/blogfiles
+scp -r ~/blog root@123.123.123.123:/home
           </code>
         </pre>
       </p>
@@ -146,7 +138,7 @@
     <!-- 打赏和评论方式 -->
     <div class="footer">
       <section>
-        <h3>关于评论</h3>
+        <h3>评论</h3>
         <p>可以，但没必要。估计也没啥评论，搞得不好网站说不定还被封。真有不解之处可以微博<a class="weibo-link" href="https://weibo.com/u/2970221897?refer_flag=1001030103_&is_hot=1"><img class="weibo-icon" src="http://blogassets.axi.name/images/weibo.svg" alt="weibo">希饭配粥</a>私信我。</p>
       </section>
       <section>
@@ -157,10 +149,6 @@
     </div>
 
   </article>
-  <script src="https://cdn.bootcss.com/highlight.js/9.13.1/highlight.min.js"></script>
-  <script>
-    hljs.initHighlightingOnLoad();
-  </script>
 </body>
 
 </html>

@@ -11,9 +11,9 @@ h6 {
 /* 全局样式 */
 body {
   margin: 0 auto;
-  max-width: 700px;
-  background: #fff;
-  color: #4f5759;
+  max-width: 690px;
+  background: WHITE;
+  color: BLACK;
   font: 100% 'PT Sans', 'Arial', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft Jhenghei', 'Microsoft YaHei', 'WenQuanYi Micro Hei', 'STXihei', sans-serif;
   text-rendering: optimizelegibility;
   -webkit-text-size-adjust: 100%;
@@ -21,13 +21,29 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-section {
-  margin-bottom: 1em;
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 20px;
 }
 
 h3 {
-  line-height: 2;
-  margin-bottom: .5em;
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-weight: 500;
+}
+
+h5,
+h6 {
+  font-size: 14px;
 }
 
 ul {
@@ -40,49 +56,83 @@ li {
 
 a,
 a:active {
-  color: #4f5759;
+  color: CADETBLUE;
 }
 
 a:visited {
-  color: #282c2e;
+  color: CADETBLUE;
 }
 
 a:hover {
-  color: #b0bdc0;
-}
-
-p {
-  margin: 0;
-  text-indent: 1em;
-  line-height: 1.5;
-  color: #737778;
-  word-break: break-all;
+  color: STEELBLUE;
 }
 
 code {
   font-family: Monaco, Menlo, Consolas, 'Courier New', Courier, monospace;
+  background-color: BISQUE;
+  border-radius: .3rem;
+  padding: 0 .4rem;
+  margin: 0 .2rem;
+}
+
+pre {
+  border-radius: .5rem;
+  background-color: DARKSLATEGRAY;
+  color: GAINSBORO;
+  font-size: 0;
+  overflow-x: scroll;
+  padding: 0 1rem;
+  margin: 1rem 0;
 }
 
 pre > code {
-  border-radius: 1em;
+  margin: 0;
+  padding: 0;
+  background-color: initial;
+  font-size: 1rem;
 }
 
+/* 博客文章 */
 article {
-  padding: 16px;
+  padding: 1.5rem;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 1rem;
+}
+
+/* 博客标题 */
 header > h1 {
   text-align: center;
+  margin-top: 1rem;
 }
 
+/* 作者 */
 header > p {
   line-height: 2;
 }
 
+/* 段落 */
+section {
+  margin-bottom: 1rem;
+}
+
+/* 段落正文 */
+p {
+  margin: 0 0 .5rem;
+  text-indent: 1rem;
+  line-height: 1.5;
+}
+
 aside {
   background: #e0e0e0;
-  border-radius: .5em;
-  padding: 1em;
+  border-radius: .5rem;
+  padding: 1rem;
 }
 
 aside > ul {
@@ -95,29 +145,13 @@ aside li {
 }
 
 article > p {
-  text-indent: 2em;
-  font-size: 14px;
+  text-indent: 2rem;
   text-align: right;
-}
-
-article h1 {
-  font-size: 24px;
-}
-
-article h2 {
-  font-size: 18px;
-}
-
-article h3,
-article h4,
-article h5,
-article h6 {
-  font-size: 16px;
 }
 
 figure {
   text-align: center;
-  margin: 1em;
+  margin: 1rem;
 }
 
 img {
@@ -152,16 +186,16 @@ img {
 
 .footer {
   margin-top: 20px;
-  background-color: #eee;
-  padding: 1em;
-  border-radius: 6px;
+  background-color: GAINSBORO;
+  padding: 1rem;
+  border-radius: .5rem;
 }
 
 .footer .feed-qrcode {
   width: 100px;
   height: 100px;
   margin-top: 10px;
-  margin-left: 1em;
+  margin-left: 1rem;
 }
 
 .footer .weibo-link {
@@ -173,4 +207,8 @@ img {
   height: 16px;
   vertical-align: text-top;
   margin-right: 4px;
+}
+
+.author {
+  text-align: right;
 }
